@@ -66,5 +66,5 @@ NOVEL_CONF = {
     # 花溪
     'huaxi_search_offset' :{"start": 1, "end": 2, "pagesize": 20, "start_page": 1},
     #夜读小说0
-    # 'yeduxiaoshuo_search_offset':{"start": 1, "end": 2, "pagesize": 30, "start_page": 1},
+    'yeduxiaoshuo_search_offset':{"start": 1, "end": 2, "pagesize": 30, "start_page": 1},
 }
