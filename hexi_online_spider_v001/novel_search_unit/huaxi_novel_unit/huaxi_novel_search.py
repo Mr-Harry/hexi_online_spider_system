@@ -21,7 +21,6 @@ class HuaXi:
 
     def get_author(self, author_url):
         response = unify_requests(url=author_url, headers=self.headers).text
-        # print(response)
         html_str = etree.HTML(response)
         qin_quan_author_str = ''.join(html_str.xpath('//div[@class="author"]/a/h2/text()'))
         return qin_quan_author_str

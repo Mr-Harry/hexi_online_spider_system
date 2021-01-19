@@ -51,7 +51,6 @@ class YeDuXiaoShuo:
             data = {'searchkey':search_key,'searchtype':'all','ajax_gets':1}
             respose_text = unify_requests_POST(url=search_url, headers=self.headers,data=data)
             json_response = json.loads((respose_text.text))
-            # print(json_response['book'])
             for i in json_response['book']:
                 for each in self.parse_search_novel(i['url_articleinfo'], **kwargs):
                     search_result.append(each)

@@ -22,7 +22,7 @@ def unify_requests(method="GET",url="",headers={},proxies={},data={},verify=Fals
     else:
         response = requests.post(url, headers=headers,proxies=proxies,data=data,verify=verify,cookies=cookies,timeout=5)
         return response
-
+# 统一请求响应函数  POST
 def unify_requests_POST(method="POST", url="", headers={}, proxies={}, data={}, verify=False, cookies={}):
     if method == "POST":
         response = requests.post(url, headers=headers, proxies=proxies, data=data, cookies=cookies, timeout=5)

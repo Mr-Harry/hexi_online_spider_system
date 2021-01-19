@@ -3,7 +3,7 @@
 # author xyy,time:2020/9/25
 
 __novel_search_function__ = {
-    # 模版
+    # 模版0
     '1':"novel_search_unit.chuang_shi_zhong_wen_wang_novel_unit.chaungshi_novel_search", # 创世小说
     "2":"novel_search_unit.duokan_novel_unit.duokan_novel_search", # 多看阅读
     # "3":"", # 番茄 先停
