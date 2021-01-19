@@ -1,0 +1,225 @@
+===  完成但存在问题的的平台
+√    已完成平台
+
+
+#操作记录  2021-1-8  周五
+1.88书客           √
+    88shuke_cartoon_unit
+2.92度漫画         √
+    92dumanhua_cartoon_unit
+3.98漫画           √
+    98manhua_cartoon_unit
+
+
+
+
+
+#操作记录  2021-1-7  周四
+1.77漫画           √
+    77manhua_cartoon_unit
+2.亲亲漫画          √
+    qinqinmanhua_cartoon_unit
+3. 7E漫画          √
+    7Emanhua_cartoon_unit
+
+
+
+
+
+
+
+
+#操作记录  2021-1-6  周三
+1.liu漫画          √
+    liumanhua_cartoon_unit
+2.733漫画          √
+    qisansanmanhua_cartoon_unit
+3.扑飞漫画          √
+
+4.笔趣阁漫画         √
+    biqugemanhua_cartoon_unit
+
+
+
+
+
+
+
+#操作记录  2021-1-5  周二
+1.522漫画             √
+    522manhua_cartoon_unit
+2.wu22漫画            √
+    wu22manhua_cartoon_unit
+3.liuliu漫画          √
+    liuliumanhua-cartoon_unit
+
+
+
+
+
+#操作记录  2020-12-31  周四
+1.一直看漫画           √
+    yizhikanmanhua_cartoon_unit
+2.2次元漫画           √
+    2ciyuan_cartoon_unit
+3.兔兔漫画            √
+    tutumanhua1_cartoon_unit
+
+
+
+
+
+
+
+
+
+
+
+
+#操作记录  2020-12-29  周二
+1.爱看漫画网           √
+    aikanmanhuawang_cartoon_unit
+2.快推漫画             ===
+    kuaituimanhua_cartoon_unit
+3.漫本动漫             √
+    manbendongman_cartoon_unit
+4.久久五叔             √
+    jiujiuwushu_cartoon_unit
+5.爱看鱼               √
+    aikanyu_cartoon_unit
+6.阿里漫画             ===
+    alimanhua_cartoon_unit
+
+
+
+
+
+
+#操作记录  2020-12-28  周一
+1.6漫画              √
+    6manhua_cartoon_unit
+2.久久5叔漫画         √
+    jiujiu5shumanhua_cartoon_unit
+3.游民搜索           √
+    youminsousuo_cartoon_unit
+4.腐漫画             ===
+    fumanhua_cartoon_unit
+
+
+
+
+#操作记录  2020-12-18  周五
+1.汗汗漫画             √
+    hanhanmanhua_cartoon_unit
+2.快岸漫画             √
+    kuaianmanhua_cartoon_unit
+3.漫画库               √
+    manhuaku_cartoon_unit
+4.漫画天堂              √
+    manhuatiantang_cartoon_unit
+
+
+
+
+#操作记录  2020-12-17  周四
+1.X18漫画平台            √
+    X18manhua_cartoon_unit
+2.One漫画平台            √
+    onemanhua_cartoon_unit
+3.滴滴漫画网             √
+    didimanhuawang_cartoon_unit
+4.漫画狂                 √
+    manhuakuang_cartoon_unit
+5.漫画DB                √
+    manhuaDB_cartoon_unit
+
+
+
+
+
+
+
+#操作记录  2020-12-16  周三
+1.漫画1234平台           √
+    manhua1234_cartoon_unit
+2.修复来漫画平台请求加密   √
+    laimanhua_cartoon_unit
+
+
+
+
+
+
+
+#操作记录  2020-12-15  周二
+1.图库漫画平台              √
+    tukumanhua_cartoon_unit
+2.前未漫画平台              √
+    qianweimanhua_cartoon_unit
+3.奇热漫画平台              √
+    qiremanhua_cartoon_unit
+4.扑飞漫画平台              ===
+    pufeimanhua_cartoon_unit
+    问题：
+        不可搜索  （搜索框输入搜索信息后，只是单纯刷新页面没有跳转到查询窗口）无请求参数
+        对首页页面漫画进行爬取时，没有作者
+5.炮渣漫画平台
+    问题：
+        搜索框输入搜索条件，任何搜索条件返回结果都没有任何一部漫画
+6.木马漫画平台              √
+    mumamanhua_cartoon_unit
+7.漫客栈平台                √
+    mankezhan_cartoon_unit
+8.小木屋平台                ===
+    xiaomuwu_cartoon_unit
+    问题：
+        无作者
+
+
+
+
+
+#操作记录  2020-12-14  周一
+1.塔多漫画平台              √
+    taduomanhua_cartoon_unit
+            (编码问题尚未解决)
+2.搜漫画平台               √
+    soumanhua_cartoon_unit
+
+
+
+
+#操作记录  2020-12-11  周五
+1.奇妙漫画平台               √
+    qimiaomanhua_cartoon_unit
+2.酷漫屋平台                 √
+    kumanwu_cartoon_unit
+3.半次元平台                 √
+    baciyuan_cartoon_unit
+
+
+
+#操作记录  2020-12-09  周三
+1.芝士豪八平台                 √
+    zhishihaobao_cartoon_unit
+2.漫画1234平台
+    manhua1234_cartoon_unit
+        请求不到页面（系统问题）搁置
+3.星辰漫画平台
+    xingchengmanhua_cartoon_unit
+        网页502
+4.爱优漫平台                   √
+    aiyouman_cartoon_unit
+5.池鱼漫画平台                  √
+    chiyumanhua_cartoon_unit
+
+
+
+
+
+#操作记录  2020-12-08  周二
+1.芝士豪八漫画平台
+    zhishihaobao_cartoon_unit   ×
+2.来漫画平台
+    laimanhua_cartoon_unit         √
+        第二次请求乱码问题 66行（已解决）
