@@ -1,0 +1,35 @@
+
+1.#87行    novel_dict['qin_quan_platform_str'] = '书旗小说'  # 侵权平台   （对应的侵权搜索平台）"起点中文网"
+
+2.#没有搜索到结果和页码超出总页数 时：将新书推荐的爬下来了，与搜索关键字无关
+
+3.#搜索脚本没有特殊情况仅一次请求（特殊情况多次请求也要添加代理）。（没必要的请求不要加def get_search_title(self, qin_quan_url_str):"""标题列表页不好取，故进详情页"""）
+qin_quan_title_str = "".join(li.xpath('./div[@class="book-mid-info"]/h4/a/text()'))
+
+4.#新增作者ID 字符形式字段   novel_dict['author_id_str'] = ''  # 作者ID 字符形式  # --------------------------------------------新增
+
+5.#请求参数添加代理  （respose_text = unify_requests(url=search_url, headers=self.headers)）
+respose_text = unify_requests(url=search_url, headers=self.headers, proxies=self.proxy)  # --------------------------------------------新增
+
+6.#请求header
+demo：
+import random                           # --------------------------------------------新增
+from fake_useragent import UserAgent    # --------------------------------------------新增
+class ShuQiNovel:
+    def __init__(self, use_proxy=True):
+        self.proxy = get_proxy() if use_proxy else None
+        self.headers = {
+            'user-agent': UserAgent().random,               # --------------------------------------------新增
+            "Proxy-Tunnel": str(random.randint(1, 10000)),  # --------------------------------------------新增
+
+            'authority': 'read.xiaoshuo1-sm.com',
+            'cache-control': 'max-age=0',
+            'upgrade-insecure-requests': '1',
+            # 'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36',
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+            'sec-fetch-site': 'none',
+            'sec-fetch-mode': 'navigate',
+            'sec-fetch-user': '?1',
+            'sec-fetch-dest': 'document',
+            'accept-language': 'zh-CN,zh;q=0.9'
+}

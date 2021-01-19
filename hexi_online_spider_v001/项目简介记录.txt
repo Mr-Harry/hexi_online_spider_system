@@ -1,0 +1,512 @@
+# 视频单元的操作修改 记录
+1> 视频升级系统操作，按音频以及小说类别进行（配置文件以及构造） 未完成❎
+    修改配置文件，添加 视频以及小说类别的配置信息，修改视频结构，（直播类平台还未添加 直播类平台本地代码）
+        结构修改为，每一个平台一个文件为单位
+2> 每个板块统一配置 工具文件  未完成❎
+    统一放到 audio_tool里，从audio_tool 统一导入  from audio_tool import *
+3> 抖音以及快手可手动 速度过快未解决 ！！！❎
+
+#操作修改记录 2021 -01 - 19 周二
+1， 抓取系统的迁移 ✅
+
+#操作修改记录 2021 -01 - 18 周一
+1，修改测试单元，修改测试板块为 全部测试 ✅
+2，修改测试单元的配置文件，修改接受人邮箱地址 ✅
+3, 喜马拉雅 修改bug headers=self.headers ✅
+    测试没有代理 无法访问，缺失请求头
+
+#操作修改记录 2021 -01 - 08 周五
+1，修改搜索引擎✅
+    为了图文进行修改 搜索引擎展示的标题 只有前28个字符，比对相似度的时候 样本和侵权title 只取前28字符
+    相同的清洗规则之后 相似度会改善，之前没有太长的标题
+2，抓取系统的配置文件进行了修改✅
+    clear_video_title_way_list 添加了 中文的 引号“
+3, 添加了 修改阿拉伯转换的问题，转换阿拉伯数字为中文 ✅
+    类型 视频和音频进行了修改，转换阿拉伯数字
+4，搜索引擎 清洗admin 先不过滤✅
+
+#操作修改记录 2021 -01 - 07 周四
+1，添加测试单元 按时进行测试 每日例行项目 ✅
+    默认执行 没有翻页等等 （只要抓取ok 逻辑没有问题）
+2，修改配置文件 requiment.txt 修改了lxml 版本✅
+3, 通过测试软件测试出的问题
+    小说平台 纵横小说网 title未取到 已完成修改 ✅
+    秒拍 平台 搜索关键词 "爱" 无法搜索 搜索关键词改未周杰伦可✅
+    搜狗搜索 也可以搜索 应该是代理的问题 ，接受✅
+    漫画慢的问题 抓取的东西多，修改cartoon_search_unit/kanmanhualamanhua_cartoon_unit/kanmanhualamanhua_cartoon_search.py✅
+        脚本响应太慢
+
+#操作修改记录 2021 -01 - 06 周三
+1，网易云抓取的问题✅
+    翻页第二页无数据，加密没有问题
+
+#操作修改记录 2020 -12 - 25 周五
+1,添加漫画平台✅
+    '69': "cartoon_search_unit.hanhanmanhua_cartoon_unit.hanhanmanhua_search",  # 汗汗漫画
+    '70': "cartoon_search_unit.manhuaku_cartoon_unit.manhuaku_cartoon_unit",  # 漫画库
+    '71': "cartoon_search_unit.manhuatiantang_cartoon_unit.manhuatiantang_search",  # 漫画天堂
+    '72': "cartoon_search_unit.manhuakumanhua_cartoon_unit.manhuakumanhua_cartoon_search",  # 漫画库漫画
+    '73': "cartoon_search_unit.x18MHmanhua_cartoon_unit.x18MHmanhua_cartoon_search",  # x18漫画2
+
+#操作修改记录 2020 -12 - 18 周五
+1，添加漫画平台 ✅
+    '56': "cartoon_search_unit.manmantaimanhua_cartoon_unit.manmantaimanhua_cartoon_search",  # 慢慢睇漫画
+    '57': "cartoon_search_unit.X18manhua_cartoon_unit.X18manhua_search",  # x18漫画
+    '58': "cartoon_search_unit.didimanhuawang_cartoon_unit.didimanhuawang_search",  # 滴滴漫画网
+    '59': "cartoon_search_unit.manhuakuang_cartoon_unit.manhuakuang_search",  # 漫画狂
+    '60': "cartoon_search_unit.manhuaDB_cartoon_unit.manhuaDB_search",  # 漫画DB
+    '61': "cartoon_search_unit.160manhua_cartoon_unit.160manhua_cartoon_search",  # 160漫画
+    '62': "cartoon_search_unit.1359manhua_cartoon_unit.1359manhua_cartoon_search",  # 13599漫画
+    '63': "cartoon_search_unit.hao123manhua_cartoon_unit.hao123manhua_cartoon_search",  # 好123漫画
+    '64': "cartoon_search_unit.katuimanhua_cartoon_unit.katuimanhua_cartoon_search",  # 卡推漫画
+    '65': "cartoon_search_unit.kuaikanmanhua_cartoon_unit.kuaikanmanhua_cartoon_search",  # 快看漫画
+    '66': "cartoon_search_unit.kuangrenmanhua_cartoon_unit.kuangrenmanhua_cartoon_search",  # 狂人漫画
+    '67': "cartoon_search_unit.niumanhua_cartoon_unit.niumanhua_cartoon_search",  # 漫画牛
+    '68': "cartoon_search_unit.pimanhua_cartoon_unit.pimanhua_cartoon_search",  # 漫画皮
+
+#操作修改记录 2020 -12 - 17 周四
+1，添加漫画平台 ✅
+    '52': "cartoon_search_unit.shoujimanhua_cartoon_unit.shoujimanhua_cartoon_search",  # 手机漫画
+    '53': "cartoon_search_unit.manhua1234_cartoon_unit.manhua1234_search",  # 漫画1234
+    '54': "cartoon_search_unit.laimanhua_cartoon_unit.laimanhua_cartoon_search",  # 来漫画
+    '55': "cartoon_search_unit.shoumanhua_cartoon_unit.shoumanhua_cartoon_search",  # shou漫画
+2，音频抓取进行的修改，过滤和确认的关键词
+    音乐平台都添加完毕 过滤以及筛选 ✅
+    网易云音乐 抓取第二页以后需要登陆 ❎？？？ !!!!!!!!!!!
+    千千只有第一页
+    情咖 ✅
+3，修改audio_tool.py ✅
+    修改过滤和筛选的代码，
+    其中通过task_type
+        区分 音频还是视频进行了区分
+
+#操作修改记录 2020 -12 - 16 周三
+1，添加漫画平台
+    '34': "cartoon_search_unit.aiyouman_cartoon_unit.aiyouman_search",  # 爱优漫画
+    '35': "cartoon_search_unit.aimanhua_cartoon_unit.aimanhua_cartoon_search",  # 爱漫画
+    '36': "cartoon_search_unit.kumanwu_cartoon_unit.kumanwu_cartoon_search",  # 酷漫屋
+    '37': "cartoon_search_unit.qisimanhua_cartoon_unit.qisimanhua_cartoon_search",  # 起司漫画
+    '38': "cartoon_search_unit.soumanhua_cartoon_unit.soumanhua_search",  # 搜漫画
+    '39': "cartoon_search_unit.taduomanhua_cartoon_unit.taduomanhua_search",  # 塔多漫画
+    '40': "cartoon_search_unit.tudanmanhua_cartoon_unit.tudanmanhua_cartoon_search",  # 土蛋漫画
+    '41': "cartoon_search_unit.xiamanhua_cartoon_unit.xiamanhua_cartoon_search",  # 侠漫画
+    '42': "cartoon_search_unit.tuhaomanhuawang_cartoon_unit.tuhaomanhuawang_cartoon_search",  # 土豪漫画网
+    '43': "cartoon_search_unit.wuyaoqumanhua_cartoon_unit.wuyaoqumanhua_cartoon_search",  # 我要去漫画
+    '44': "cartoon_search_unit.qimiaomanhua_cartoon_unit.qimiaomanhua_cartoon_search",  # 奇妙漫画
+    '45': "cartoon_search_unit.mankezhan_cartoon_unit.mankezhan_search",  # 漫客栈
+    '46': "cartoon_search_unit.mumadongman_cartoon_unit.mumadongman_search",  # 木马漫画
+    '47': "cartoon_search_unit.qiremanhua_cartoon_unit.qiremanhua_cartoon_unit",  # 奇热漫画
+    '48': "cartoon_search_unit.tukumanhua_cartoon_unit.tukumanhua_cartoon_search",  # 图库漫画 .cc
+    '49': "cartoon_search_unit.tukumanhua_cartoon_unit.tukumanhua_search",  # 图库漫画 .com
+    '50': "cartoon_search_unit.qianweimanhua_cartoon_unit.qianweimanhua_search",  # 前未漫画
+
+2，漫画平台 36漫画网 修改侵权作者的问题
+    定位错误，漫画剧情哪里有的漫画 带｜ 这种情况会出现问题 ✅ （已解决）
+
+#操作修改记录 2020 -12 - 14 周一
+1，今日头条page_num int类型， ✅
+2,漫画平台 翻页，page_num 没有这个colunm  ✅
+3,小说平台 也进行修改 ✅
+    book_update_time
+    page_num
+
+#操作修改记录 2020 -12 - 10 周四
+1，修改 book_update_time 的问题 ✅
+    之前只考虑到 这个key对应的值为空，没考虑到就没有这个值的情况
+2，添加新增的平台 目前支持 27个平台 ✅
+3,修改漫画平台 bug ✅
+    翻页的错误有问题 先+ 再-才是合理 # lpy的bug  不要跑
+4，新增两个平台✅
+    头条站内搜索 bug 链接失效，貌似不是share url ，完成修改
+    头条站外搜索
+
+#操作修改记录 2020 -12 - 09 周三
+1，话本小说 已经覆盖，✅
+    修改 print 注释掉
+2，小说平台 function_unit 添加注释✅
+    目前覆盖 27个 小说平台
+
+#操作修改记录 2020 -12 - 07 周一
+1，添加 微博视频搜索板块 ✅
+    具体发生的问题记录在 微博单独的项目记录里面了
+    问题：1，发布的时长还是没有，发布的时间格式不太对
+        2，分很多的板块 只暂时做了 视频的板块
+2，添加了漫画的几个平台✅
+    lpy
+    xyy
+        漫画89
+3，添加了lpy专属测试队列✅
+    redis_task_set_qq_name_bendi_test_lpy
+4,漫画 .get✅
+    修改audio_tool.py
+
+#操作修改记录 2020 -11 - 29 周日
+1，测试漫画平台可跑通，✅ 持续添加脚本中
+2，抖音 修改几个参数 为list 循环取 防止抓取过快 ✅
+3，抖音快手 参数解决（服务），抓取过快是个问题 ❎
+4，西瓜视频搜索抓取 ✅
+    注意翻页的时候的问题 第一页 0 第二页 13 第三页25 （12+）
+5，动漫平台 lpy 覆盖 6个 平台
+    （）
+6, 深拷贝 浅拷贝，del了值，只是浅拷贝 导致对于小说动漫来说 没有存到值
+    漫画平台和小说平台 为了能存值 先del了，之前浅copy导致复制的bf也无值，
+    修改了存储顺序 先mysql 再redis 就出现了问题
+
+#操作修改记录 2020 -11 - 28 周六
+1，添加漫画搜索板块，（按小说类别部署）✅
+    字段与小说的统一，后期在进行统一的修改吧，
+    修改tool文件夹
+2, 漫画和小说保持一致 在存储的时候也与小说保持一致  用 or链接 if task_type == 2 or ==7 ✅
+    redis_check_set_already_first
+    mysql_save_to_current_result_table
+    redis_check_set_already
+3，修改完 抓取脚本，以及完成tool文件的修改 ✅
+4，以上都未测试，测试通过才可 ！！！！✅
+5,抓取短视频平台 获得的时长int类型非字符 ✅
+    添加了 int时长转字符格式函数
+6，添加抖音短视频 搜索板块为视频板块 ✅
+7，抖音快手外部服务单独写了配置文件以及服务 这样能很轻松实现分离 ✅
+8, 修改video_function 直播平台从200 开始 ✅
+9, 添加快手抓取 （没有时长 抓取页数超过3页无数据） ✅
+
+
+#操作修改记录 2020 -11 - 24 周二
+1，bug（七月份遗留至今的bug，多进程启动的多线程，某一个线程出现问题，这一个进程都会出错，效率整个就下来了） ✅
+    三个抓取脚本 都需要修改 同样的地方 ，多线程的哪里
+    try:
+        data = future.result()
+        for i in data:
+            reduce_of_info.append(i)
+    except Exception as e:
+        print("线程出现的问题: >>>",e)
+2，修改bug 修改流程的时候 ✅
+        task = redis_check_set_already_first(result_list=reduce_of_info)
+        忘记 位置参数和关键词参数的问题
+3,为了短视频 修改clear_video_title_way_list 配置文件 ✅
+    添加更加丰富的 清洗规则（标点符号 以及特殊字符）
+
+#操作修改记录 2020 -11 - 20 周五
+1,redis_check_set_already_first 在工具文件里 添加一个脚本，只用来判断是否存在 ✅
+2，redis_check_set_already ✅
+    修改这个 添加sadd （存完 存好之后才添加）
+3，完成存储顺序的修改 ✅ nb
+4，音乐平台 千千注释掉 打印len的语句 ✅
+
+#操作修改记录 2020 -11 - 19 周四
+1，先保存之前的修改 配置文件的修改 服务器和本地的环境文件不一致 ✅
+
+#操作修改记录 2020 -11 - 10 周二
+1> 修改工具文件 ✅
+    视频存储的时候 加入时长
+2> 秒拍的bug page_num 需要强转 int类型 ✅
+3> 网易云的bug page_num 需要强转 int类型 ✅
+
+#操作修改记录 2020 -11 - 06 周五
+1> 视频类别为1 （普通的电视 电影视频，单独的一个视频一个任务的情况）添加存储的函数（添加时长和秒数）✅
+2> 抓取的时候 进行筛选和初步确认，（筛选关键词，确认关键词，tvplay_task_list） 处理中
+3> 添加的电视剧类别 添加存储函数，循环的到task_id 存这一部剧所有就ok ✅
+4> 走通抓取 过滤以及存储的过程 ✅
+5> 修改抓取脚本 专项 本地测试 tongbu_main ✅
+6> 腾讯bug detail 页面的问题 ✅
+7> 腾讯bug https://v.qq.com/s/videoplus/285106114https://v.qq.com/s/videoplus/285106114 ✅
+
+#操作修改记录 2020 -11 -03 周二
+1> 跑小说遇到的问题，代理
+    速更小说网 添加打印的字段
+    添加了 不使用代理，
+2> 使用的all_test进行抓取
+
+#操作修改记录 2020 -10 -24 周六
+1> 新增搜狗微信抓取 （时效性 注意！！！ 数据后期不可用）
+
+#操作修改记录 2020 -10 -23 周五
+1> 代理修改为 加强版 5/秒
+
+#操作修改记录 2020 -10 -18 周二
+1> 修改了 audio_tongbu_main_all_test.py ✅
+    测试各个平台的代码进行了修改
+2> 爱奇艺链接的bug 修改完成✅
+
+#操作修改记录 2020 -10 -18 周日
+1> 修改视频平台存入的问题， ✅
+    秒拍 和全民小视频没有保存到位
+    秒拍的有记录，单次执行可以，这里有问题 需要解决一下
+    全民小视频 这里的错误是传的 video2_author 传入的是字典非字符串导致错误 解决✅
+2> 添加五个搜索平台 ✅
+    凤凰网视频 土豆网视频 PPTV 芒果TV 乐视视频
+
+#操作修改记录 2020 -10 -16 周五
+1> 添加的平台完成大部分，以上传，✅
+2> 测试过程解决问题 视频板块 还是search_songs ✅
+3> 修改视频video2_author 获取不到 赋值为 "" 不能赋值为none 这样会出现问题 ✅
+4> 测试过程 秒拍的 代理问题 proxies not define 写成全局了 ✅
+
+#操作修改记录 2020 -10 -14 周三
+1> 添加搜索引擎板块 添加搜索引擎function unit ✅
+2> 修改配置文件 添加搜索引擎的 __engine_search_function__ ✅
+3> 修改抓取的函数 添加 类型为5 的搜索引擎 ✅
+    普通队列 ✅
+    专项队列 ✅
+    测试队列 ✅
+4> 修改了tool.py
+    添加了 插入数据库 插入redis 搜索引擎 ✅
+5> 神马搜索bug ，第一页有问题，第二页ok 未完成 （更新代码和音频比对代码一起更新） ✅
+    修改完毕
+
+
+#操作修改记录 2020 -10 -13 周二
+1> 添加搜索引擎板块，
+    百度搜索 用到beautifulsoup 环境文件添加第三方库
+    百度搜索 用到htmlmin 环境文件添加第三方库
+
+#操作修改记录 2020 -10 -12 周一
+1>小说平台 ponecctv 脚本修改
+    侵权平台的小说作者名未添加（已修改）✅
+
+#操作修改记录 2020 -10 -10 周六
+1> 小说平台添加一个 p_onecctv 小说平台（这个平台也是抓取别人的数据 ？？np）
+2> 修改小说的function_unit
+3> 小说平台 29 没有作者，需要单独获取，单独获取有问题，修改了逻辑，标题一致的情况下才判断作者
+#操作修改记录 2020 -10 -09 周五
+1> 添加搜索引擎板块 今后多一个分类
+2> 图文板块 添加分类 （只有文件夹不能push？）
+
+#操作修改记录 2020 -10 -07 周三
+1> 添加 tongbu_main main_all_test main_zhuanxiang 注释
+    修改了函数内部注释 注释修改在 判断之前，比较清晰直观，此类别 完成✅
+    get_search_response 这个函数 太多冗余的地方，每一个不同的板块就要elif判断，（可否使用配置？）未完成 ❎
+#操作修改记录 2020 -10 -06 周二
+1> 修改audio_tool.py 文件 完成✅
+    修改存储函数（mysql）果然还是要用.get
+        问题：获取不到 video2_id 这个值，获取不到就取空 而非null
+         注意：   pymysql.escape_string('') 不能执行 null 如果没有值取 空字符串
+
+#操作修改记录 2020 -09 -28 周一
+1> 专项修改 没改专项的代码 今后会有问题 已完成✅
+
+#操作修改记录 2020 -09 -27 周日
+1> 最终的测试 小说类 ，
+    修改 平台的 打印的问题，
+    更新主任务爬取规则队列的流程，（0默认是所有，_下划线是分割，但是这样有问题，）
+        今后每个任务一个平台这样放 （比如小说这个 错一个平台就全错了，这个流程是有问题的）
+2> 爬取的过程当中 使用代理 use_proxies = True
+    修改 redis任务队列的keys
+3> 新的两个平台 爱奇艺读书 和追书阅读
+    更新了 书籍配置文件
+4> 修改小bug 平台bug
+    爱奇艺文学和追书
+
+#操作修改记录 2020 -09 -25 周五
+1>  添加劳动成果 小说平台的抓取 周五添加平台 25个
+    进行测试 小说type 4
+    注意 需要修改 三处代码
+    1。每个板块里面的function_unit 动态导入
+    2。抓取脚本里面有两处的改动
+        添加 __novel_search_function__
+        修改 动态导入的部分
+
+2> 修改 图文的 平台切分的关键词问题 graphic 而不是video
+3> 新加如一个测试脚本 只用来测试
+    audio_tongbu_main_all_test.py
+4> 修改redis 和mysql 文件
+    这是个 bug
+
+# 操作修改记录    2020 - 09 - 18 周五
+1> 修改好秒拍的抓取 下载也列出来列，规范化列 脚本模版
+2> 在工具脚本里添加了脚本，get_proxy()
+3> 修改了 视频的配置文件，没那么多配置，统一配置 类型，
+    只有 翻页参数 默认
+
+# 操作修改记录    2020 - 09 - 17 周四
+1> 添加一个bendi_test 任务队列用来测试数据 ✅
+2> 修改 音乐平台的抓取，每个项目一个文件夹，nice ✅
+3> 千千音乐的平台进行了修改，开发中（）
+4> 每一个平台添加了参数 **kwargs 传递page_num参数 可规定爬取的页数 ✅
+5> 添加了 图文平台的 框架，添加 图文平台和添加图文平台配置文件即可 ✅
+注意！！！
+开始进行一个大的修改，在传任务的同时进行任务的调整而非调整默认的配置文件
+    调整爬取的页数 传递的参数修改为两个
+    调整结构
+        每一个板块应该放在文件夹下面 （将来可能所有的板块都有 init 文件 （规范化））
+# 操作修改记录    2020 - 09 - 09 周三
+1> 添加关于音乐平台搜索的数据量限制 配置文件添加范围限制 实现功能获取数据量的百分比 （只爬取一页的情况下 提高精度）
+    x = [1,1,1,1]
+    x[:int(len(x)*0.5)+1]
+    [1, 1, 1]
+    x = []
+    x[:int(len(x)*0.5)+1]
+
+# 操作修改记录    2020 - 09 - 07 周一 （大的修改！！！）
+hexi_online_spider_v001
+1> 修改 存储位置，放弃之前每日一表模式，在抓取的同时 存储的位置进行改变，存储到对应的表里，（初期存在 对应的子任务base表格里，）
+2> 修改 audio_tool.py 修改mysql存储的函数，判断表名以及添加了相似度，代替小系统的作用（子任务哪里）
+3> 修改数据库 库名到migrate_test
+4> 发现bug 任务里面的东西不能为空 不然会有问题
+5> 修改抓取的脚本 添加多进程错误判断函数 err_callback
+6> 修改爬取速度 432
+
+# 操作修改记录    2020 - 08 - 28 周五
+1> 修改视频 bilibili 写错变量名
+    改为bilibili_video_search_type_list
+
+# 操作修改记录    2020 - 08 - 27 周四
+1> 修改audio_tool 脚本 redis_check_set_already函数
+    url_hash_改为task_id + | + 侵权URLhash
+    添加 con.add(task_id + | + 侵权URLhash) # 26日未修改
+2> 修改audio_tool 脚本 mysql_save_to_current_result_table函数
+    修改插入语句 插入侵权urlhash 字段的时候 修改为
+        str(each["id"])+"|"+each["audio2_url_hash"] # 未估计是否影响 本地音频比对系统
+3> 修改audio_tool mysql 保存的步骤出现问题，video 改成audio了，直接粘贴复制的锅
+# 操作修改记录    2020 - 08 - 26 周三
+1> 修改audio_tool 脚本 redis_check_set_already函数
+    url_hash_改为task_id + | + 侵权URLhash
+2> 修改audio_tool 脚本yuan_chang函数
+    修改判别原创 歌名一样，歌手一样（清洗之后）
+3> 修改audio_tongbu_main_zhuanxiang.py 脚本
+    修改 判断这个队列redis_check_key_exit函数 的task_name为对应的
+# 操作修改记录    2020 - 08 - 10 周一
+1> 增加脚本 负责专项任务（增加一个队列，只处理专项业务）✅
+2>
+# 操作修改记录    2020 - 08 - 05
+1> 修改网易云 cookie （可能医护更改为在线获取那种）✅
+
+# 操作修改记录    2020 - 08 - 03
+1> 数据库操作断开链接
+
+# 操作修改记录    2020 - 07 - 31
+1> 测试跑通视频和音频系统 ✅
+2> 调优抓取系统 相似度还是得上 （无法判断的太多给比对系统带来很大的压力） ✅
+3> 修改数据存储的mysql语句   ✅
+4> 修改动态调用 ✅
+5> 修改 每个板块音频和视频都有一个独立的配置文件 为动态调用准备 ✅
+6> 修改 redis 判断是音频还是视频（以后会加上图文系统）    ✅
+7> 修改 三个音乐平台 规则判断以样本名字开头(第一个字得相同) ✅
+8> 解决问题 草（动态导入 没注意是音频的key 一致报错，多进程报错不限时 这里要注意）
+
+# 操作修改记录    2020 - 07 - 30
+1> 准备增加视频抓取 ✅
+2> 准备修改为动态导入 不能每次从新启动脚本 太sb了 （简单的 修改配置文件添加脚本到对应的文件里面，目前先按照这个方案走） ✅
+3> 测试视频抓取系统跑通 ❎
+
+
+# 结构目录说明
+audio_compar_unit 对比文件 （暂未设计）
+audio_search_unit 各个平台搜索接口设计 （目前只涉及搜索 有两个方案 同步和异步 ）
+    同步： 搜索加代理 多线程 多进程
+    异步： 返回参数 使用异步请求进行抓取
+
+    覆盖平台：  虾米音乐， 网易音乐
+        注意的问题：
+            千千音乐 不知道cookies
+            是否会过期
+            是否 BAIDUID cookies 这个值会过期
+        统一实现的接口
+            同步：
+                1> search_songs(song_name='路在何方',proxy=proxies) -> list<dict> 通用返回字段 7个
+                    注：不同的平台搜索返回包含的的信息不一样 通用就这七条 详细去不同脚本检查
+
+                    dic_["audio2_albumName"]
+                    dic_["audio2_singers"]
+                    dic_["audio2_songName"]
+                    dic_["audio2_songId"]
+                    dic_["audio2_platform"]
+                    dic_["audio2_url"]
+                    dic_["audio2_url_hash"]
+
+                2> get_single 返回单独页面的获取
+                    注： 使用装饰器 retry ，设置最大尝试次数以及 间隔 因为代理的问题 代理再买好一点 可提数度
+
+            异步：
+                1> back_search_parms(name='路在何方') -> dict 通用返回字段
+                    detail_info_dic['params']
+                    detail_info_dic['headers']
+                    detail_info_dic['requir_way']
+                    detail_info_dic['url']
+
+                ！！！ 使用异步请求 目前两个问题 aiohttp
+                    1> 虾米的cookie获取，
+                    2> 代理使用的重复请求 too many requests（是否可以一批任务使用同一个代理）
+
+audio_tool.py 各种小工具的集合
+    操作数据库
+    操作redis
+    操作时间
+
+
+项目要求：
+
+监控需求为：
+1、数据源为独家词曲，请监控如上三平台的原唱+翻唱行为；
+2、输出频次：每周输出
+3 、输出结果请包涵如下字段：
+TME歌曲名	TME歌手名	TME专辑名	TME版权方	竞品歌曲名	竞品歌手名	竞品专辑名	竞品ID	竞品链接
+
+
+
+
+# 操作修改记录
+2020 - 07 - 08
+# 修改抓取页数 为一页 （by：任务的获取 通过歌名和歌手去定位 准确率会很高）
+
+
+
+# 操作修改记录
+2020 - 07 - 09
+1>修改比对为system （如果是系统比较出来的话）  # 下次在修改 ❎
+2>修改比对的 如果不能播放 应该是有个值去记录的 三个平台 都看一看（虾米 网易 千千）✅
+3>系统样本抓取URL
+
+网易灰度检查 每个字典里面 privilege 下面的st=-200 无法播放 =0可以播放
+虾米灰度检查 每个字典里面   bizTags下面的S_OFF （bizTags 包含各种状态 其中 S_OFF 不能播放）
+千千音乐 修改class @刘鹏遥
+
+# 操作修改记录
+2020 - 07 - 10
+1> 增加喜马拉雅平台的抓取（区分了时长 没看见有灰度，暂时不用监测是否可以播放） ✅
+2> 修改了bug 千千音乐导入包的时候出现问题，base的文件了✅
+3>
+
+# 操作修改记录
+2020 - 07 - 13
+1> 不同平台对应 不同的规则，有个规则函数包unit ✅
+2> 不同批次的任务对应不同的消息队列 ,（减小服务器的压力 ✅
+3> 增加情咖FM平台的抓取 ✅ （对应的链接不对，对应的链接是播放地址不是分享的链接）
+
+
+# 操作修改记录
+2020 - 07 - 22
+1> 修改按不同类型的任务添加 0图文 1视频 2图文
+2> 添加搜索关键词这个字段 按关键词搜索 量大，
+    修改tongbu_mian代码 按task_type区分类型 按search_key_words检索
+
+
+
+
+
+
+
+
+
+# 注意事项
+# 音频对应平台
+    __audio_search_function__ = {
+        '1':XiaMi,
+        '2':WangYiYun,
+        '3':QianQian,
+        '4':XiMaLaYa,
+        '5':QingKa,
+    }
+
+
+
+
+###################################################################
+###################################################################
+###################################################################
+注意 传递的任务字典 长这个样子
+sadd audio_task_of_qq_json_set
+'{"id": "1", "video_title": "zjl", "video_url": "www", "video_author": "zjl", "video_platform": "zjl_test", "video_check_platform": "2", "task_type": 1, "search_key_words": "\u5468\u6770\u4f26"}'
+###################################################################
+###################################################################
+###################################################################
+###################################################################

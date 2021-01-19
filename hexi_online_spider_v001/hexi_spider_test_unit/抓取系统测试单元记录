@@ -1,0 +1,11 @@
+# 2021 01 07
+1,网易邮箱密码
+    BPJBNWIMXOWMKBEB
+2，完成邮件发送 配置 Spider_Test_Config.py
+    发送人 接收人 标题 附件等等
+3，添加 发送邮件的脚本
+    send_email_hexi.py
+4, 添加 测试的脚本
+    test_every_platform.py
+5，添加 附件文件
+    路径：test_email_file_tem (存放每次有问题的路径)

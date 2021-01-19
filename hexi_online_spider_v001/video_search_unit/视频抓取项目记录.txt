@@ -1,0 +1,41 @@
+>视频平台搜索联想（搜索关键词）
+>> url
+# acfun：https://www.acfun.cn/rest/pc-direct/search/suggest?count=6&keyword=b&callback=jQuery35109206783991666732_1604901301047&_=1604901301053
+# 爱奇异：https://suggest.video.iqiyi.com/?key=q1&platform=11&rltnum=10&uid=b8f7b44e2640d95adbd949e34d871483&ppuid=2396487192&callback=qiyiheaderSdkJsonpCallback6
+# bilibil：https://s.search.bilibili.com/main/suggest?func=suggest&suggest_type=accurate&sub_type=tag&main_ver=v1&highlight=&userid=427551152&bangumi_acc_num=1&special_acc_num=1&topic_acc_num=1&upuser_acc_num=3&tag_num=10&special_num=10&bangumi_num=10&upuser_num=3&term=1&rnd=0.11715475163288769&jsonp=jsonp&callback=jsonCallback_bili_5026267419155472
+# 好看视频：https://haokan.baidu.com/videoui/api/searchsug?query=%E4%B8%BA1
+# 乐视视频：http://suggest.letv.cn/suggestion?callback=jQuery191012303419210234501_1604905766821&p=pcjs&q=%E4%B8%BA1&from=pc&jf=1&lang=zh_cn&ph=420001&dt=1%2C2%2C3%2C4%2C6&user_setting_country=CN&device_id=0a57be4270bb5d63529fdf5acc36cdc9&_=1604905766826
+# 芒果视频：https://mobileso.bz.mgtv.com/pc/suggest/v1?q=%E9%A3%8E&callback=jsonp_1604907297547_90994
+# 美拍：https://www.meipai.com/search/word_assoc?q=%E9%A3%8E1
+# PPTV：https://searchapi.pptv.com/query/nt?cb=recSearchData&appid=pptvweb&appver=1.000&appplt=web&q=111&cm=ikan&colordis=span&hasVirtual=1&vipdis=0&fm=1&cnt=10
+# 搜狐视频：https://tip.tv.sohu.com/s?encode=utf8&key=%E6%88%91%E6%98%AF&callback=jQuery111105940363011773082_1604910212760&_=1604910212765
+# 腾讯视频：https://s.video.qq.com/smartbox?callback=jQuery19105836432108544731_1604910492259&plat=2&ver=0&num=10&otype=json&query=w&uid=7580c998-297d-43fa-baa6-94428279a60f&_=1604910492265
+# 土豆：https://tip.tudou.soku.com/v1/search_tip?jsoncallback=XBox.kUpdate&query=%E6%88%91%E7%9A%84&site=4&rm=C9214D78F86000018DEE127D15516D20-3&h=16
+#
+>> 无搜索关键词联想
+# 凤凰视频
+# 秒拍
+# 全民小视频
+#
+
+
+> 视频平台抓取 添加时长的平台
+>> 20201106
+# 爱奇异
+# 优酷
+# 腾讯
+# acfun
+# bilibil
+>> 20201109
+# 好看视频
+# 乐视视频
+# 秒拍
+# 全民小视频
+# 腾讯视频
+# 土豆
+# 搜狐视频
+# 网易云音乐视频
+# 芒果视频
+>> 搜索没有时长的平台：
+    1.凤凰视频
+    2.美拍

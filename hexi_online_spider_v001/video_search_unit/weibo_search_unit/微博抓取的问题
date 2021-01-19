@@ -1,0 +1,13 @@
+# 2020 12 07
+
+# 视频的播放地址，是否有时效性？
+2020 12 07
+    # 某个视频URL
+    http://f.video.weibocdn.com/003UMIo9gx07I0XIf4GA010412012xWk0E010.mp4?label=mp4_ld&template=640x360.25.0&trans_finger=40a32e8439c5409a63ccf853562a60ef&ori=0&ps=1BVp4ysnknHVZu&Expires=1607313012&ssig=xB6ng97D5J&KID=unistore,video
+
+1，微博分为 好多的板块， 板块 通过100103type=64 区分，
+    综合，用户 实时 关注 视频 问答 文章 图片 。。。。
+    视频 type 64
+    综合 type 1
+
+2，
