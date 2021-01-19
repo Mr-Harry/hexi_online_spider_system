@@ -6,8 +6,8 @@ import random
 from fake_useragent import UserAgent
 from lxml import etree
 
-from audio_tool import get_proxy, unify_requests, md5_use, clear_text, str_similar, get_parms_value
-from cartoon_search_unit.cartoon_spider_settings import CARTOON_CONF
+from audio_tool import get_proxy, unify_requests, md5_use, clear_text, str_similar
+from a已完成已迁移卡通任务.cartoon_spider_settings import CARTOON_CONF
 
 class yiliulingManHuaCartoon:
     def __init__(self, use_proxy=CARTOON_CONF.get('search_use_proxy')):
@@ -87,10 +87,14 @@ class yiliulingManHuaCartoon:
                 # if qin_quan_info_temp.xpath('./p[1]/span/em/a/text()'):
                 #     qin_quan_author_str = qin_quan_info_temp.xpath('./p[1]/span/em/a/text()')[0]
                 # else:
-                qin_quan_author_str = ''
-                # qin_quan_author_str = qin_quan_info_temp.xpath('./p[1]/span/em/a/text()')[0]# 侵权作者
 
-                # print(qin_quan_author_str,'作者')
+                if qin_quan_info_temp.xpath('/html/body/div[3]/div[2]/p[1]/span/em//text()'):
+                    qin_quan_author_str = qin_quan_info_temp.xpath('/html/body/div[3]/div[2]/p[1]/span/em//text()')[0]
+                else:
+                    qin_quan_author_str = ''
+                    # qin_quan_author_str = qin_quan_info_temp.xpath('//p[@class="mh-pdt30 works-info-tc"]/span/em/a/@title')[0]# 侵权作者
+
+                print(qin_quan_author_str,'作者')
                 # print(qin_quan_author_str)
                 # if not qin_quan_author_str:
                 #     continue
@@ -188,7 +192,7 @@ if __name__ == "__main__":
         # 'yang_ben_url_str': 'https://www.imanhuaw.com/imanhua/aiqingzhuanmaidian/',
         # 'page_num': 1,
     }
-    result = search_normals('吃', **yangben_dict)
+    result = search_normals('我的', **yangben_dict)
     # shuqi = ShuQiNovel(use_proxy=True)
     # result = shuqi.search_qin_quan('爱', **yangben_dict)
     print(len(result))
