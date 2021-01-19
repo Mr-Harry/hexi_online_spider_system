@@ -2,6 +2,7 @@
 # I don't like the world. I just like you
 # author : pyl owo,
 # time : 2020/7/14
+import datetime
 import json
 import random
 from urllib.parse import urlencode
@@ -54,9 +55,10 @@ class WeiBoVideo:
             return search_result_temp
         search_url = self.search_video_url.format(kw=quote(song_name), page=search_page)
         search_response = self.get_response_single(search_url)
+        # print(search_response.text)
         search_result_temp.append(self.parse_search_video_song(search_response))
         # print(search_url)
-        print(search_result_temp)
+        # print(search_result_temp)
         return unit_result_clear_for_video([j for i in search_result_temp for j in i], **kwargs)
 
     # 单一请求
@@ -77,8 +79,8 @@ class WeiBoVideo:
         try:
             tree = json.loads(response.text)
 
-        except:
-            # pri
+        except Exception as e:
+            print(e)
             return []
         else:
             result_list = []
@@ -87,40 +89,42 @@ class WeiBoVideo:
             except:
                 video_song_list_data =[]
             for v_s in video_song_list_data:
-                if v_s.get("card_type",{}) ==11: # 什么类型？
-                    for each in v_s.get("card_group",[]):
-                        video_dict = dict()
-                        video_dict["video2_title"] = each.get("mblog", {}).get("page_info", {}).get("content2", "")
-                        if not self.check_video_title(video_dict.get("video2_title")):
-                            continue
-                        # video_dict["video2_url"] = self.url_add_http(v_s.get("mblog", ''))
-                        video_dict["video2_url"] = each.get("mblog", {}).get("page_info", {}).get("media_info", {}).get(
-                            "h5_url", "")
-                        video_dict["video2_author"] = each.get("mblog", {}).get("user", {}).get("screen_name", {})
-                        # video_dict["video_author_zone"] = "".join(v_s.xpath(".//a[@class='video-meta-user']/@href"))
-                        video_dict["video2_pubtime"] = '' # 预留的位置  mblog 下的 created_at 时间格式很奇怪
-                        video_dict["video2_url_hash"] = md5_use(video_dict.get("video2_url"))
-                        video_dict["video2_platform"] = "微博视频"
-                        if video_dict["video2_url"]:
-                            duration_str_temp = each.get("mblog", {}).get("page_info", {}).get("media_info", {}).get(
-                                "duration", "")
-                            duration, duration_str = unify_duration_format(duration_str_temp)
-                            video_dict["video2_duration"] = duration  # 时长（秒数）
-                            video_dict["video2_duration_str"] = duration_str  # 时长（字符串）
-                            # print("11",video_dict)
+                # if v_s.get("card_type",{}) ==11: # 什么类型？
+                #     for each in v_s.get("card_group",[]):
+                #         video_dict = dict()
+                #         video_dict["video2_title"] = each.get("mblog", {}).get("page_info", {}).get("title", "")
+                #         if not self.check_video_title(video_dict.get("video2_title")):
+                #             continue
+                #         # video_dict["video2_url"] = self.url_add_http(v_s.get("mblog", ''))
+                #         video_dict["video2_url"] = each.get("mblog", {}).get("page_info", {}).get("page_url", "")
+                #         # video_dict["video2_url"] = each.get("mblog", {}).get("page_info", {}).get("media_info", {}).get(
+                #         #     "h5_url", "")
+                #         video_dict["video2_author"] = each.get("mblog", {}).get("user", {}).get("screen_name", "")
+                #         # video_dict["video_author_zone"] = "".join(v_s.xpath(".//a[@class='video-meta-user']/@href"))
+                #         video_dict["video2_pubtime"] = '' # 预留的位置  mblog 下的 created_at 时间格式很奇怪
+                #         video_dict["video2_url_hash"] = md5_use(video_dict.get("video2_url"))
+                #         video_dict["video2_platform"] = "微博视频"
+                #         if video_dict["video2_url"]:
+                #             duration_str_temp = each.get("mblog", {}).get("page_info", {}).get("media_info", {}).get(
+                #                 "duration", "")
+                #             duration, duration_str = unify_duration_format(duration_str_temp)
+                #             video_dict["video2_duration"] = duration  # 时长（秒数）
+                #             video_dict["video2_duration_str"] = duration_str  # 时长（字符串）
+                #             # print("11",video_dict)
+                #
+                #             result_list.append(video_dict)
+                #         print(video_dict)
 
-                            result_list.append(video_dict)
-                        # print(video_dict)
-
-                elif v_s.get("card_type",{}) == 9: # 普通视频类型
+                if v_s.get("card_type",{}) == 9: # 普通视频类型
 
                     video_dict = dict()
-                    video_dict["video2_title"] = v_s.get("mblog",{}).get("page_info",{}).get("content2","")
+                    video_dict["video2_title"] = v_s.get("mblog",{}).get("page_info",{}).get("title","")
                     if not self.check_video_title(video_dict.get("video2_title")):
                         continue
                     # video_dict["video2_url"] = self.url_add_http(v_s.get("mblog", ''))
-                    video_dict["video2_url"] = v_s.get("mblog",{}).get("page_info",{}).get("media_info",{}).get("h5_url","")
-                    video_dict["video2_author"] = v_s.get("mblog",{}).get("user",{}).get("screen_name",{})
+                    # video_dict["video2_url"] = v_s.get("mblog",{}).get("page_info",{}).get("media_info",{}).get("h5_url","")
+                    video_dict["video2_url"] = v_s.get("mblog",{}).get("page_info",{}).get("page_url","")
+                    video_dict["video2_author"] = v_s.get("mblog",{}).get("user",{}).get("screen_name","")
                     # video_dict["video_author_zone"] = "".join(v_s.xpath(".//a[@class='video-meta-user']/@href"))
                     video_dict["video2_pubtime"] = ''
                     video_dict["video2_url_hash"] = md5_use(video_dict.get("video2_url"))
@@ -135,7 +139,7 @@ class WeiBoVideo:
 
                         result_list.append(video_dict)
                     # print(video_dict)
-
+        # print(result_list)
         return result_list
 
     # 视频搜索结果通过标题模糊 %key% 筛除
@@ -145,6 +149,11 @@ class WeiBoVideo:
 
 search_songs = WeiBoVideo(use_proxy=True).search_songs
 if __name__ == '__main__':
+    # 测试微博时间
+    # dd = "Fri Nov 09 14:41:35 +0800 2018"
+    # GMT_FORMAT = '%a %b %d %H:%M:%S +0800 %Y'
+    # print(datetime.datetime.strptime(dd, '%a %b %d %H:%M:%S +0800 %Y'))
+    # exit(0)
     kwags = {
         "id": 574979,
         "video_title": "班淑传奇",
@@ -160,4 +169,6 @@ if __name__ == '__main__':
         # "confirm_key_words": "班淑传奇",
         # "filter_key_words_list": "片花_穿帮_片头曲_片尾曲_预告_插曲_翻唱_翻唱_发布会_演唱_演奏_合唱_专访_合奏_打call_宣传_原唱_cover_原曲_片花_穿帮_音乐_主题歌_有声小说_片头_片尾",
     }
-    print(WeiBoVideo(use_proxy=True).search_songs(kwags["search_key_words"], **kwags))
+    info= search_songs(kwags["search_key_words"], **kwags)
+    print(len(info))
+    print(info)
