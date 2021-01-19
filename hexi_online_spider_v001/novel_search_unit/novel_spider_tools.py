@@ -23,6 +23,15 @@ def unify_requests(method="GET",url="",headers={},proxies={},data={},verify=Fals
         response = requests.post(url, headers=headers,proxies=proxies,data=data,verify=verify,cookies=cookies,timeout=5)
         return response
 
+def unify_requests_POST(method="POST", url="", headers={}, proxies={}, data={}, verify=False, cookies={}):
+    if method == "POST":
+        response = requests.post(url, headers=headers, proxies=proxies, data=data, cookies=cookies, timeout=5)
+        return response
+    else:
+        response = requests.post(url, headers=headers, proxies=proxies, data=data, verify=verify, cookies=cookies,
+                                 timeout=5)
+        return response
+
 # 两个字符串的相似度
 def str_similar(str1, str2):
     return round(difflib.SequenceMatcher(None, str(str1), str(str2)).quick_ratio(), 2)

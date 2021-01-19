@@ -63,4 +63,8 @@ NOVEL_CONF = {
     "zhangyue_search_offset": {"start": 1, "end": 2, "pagesize": 6, "start_page": 1},
     # 彩虹免费小说
     "caihongmianfei_search_offset": {"start": 1, "end": 2, "pagesize": 15, "start_page": 1},
+    # 花溪
+    'huaxi_search_offset' :{"start": 1, "end": 2, "pagesize": 20, "start_page": 1},
+    #夜读小说
+    # 'yeduxiaoshuo_search_offset':{"start": 1, "end": 2, "pagesize": 30, "start_page": 1},
 }

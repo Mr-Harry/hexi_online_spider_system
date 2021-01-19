@@ -33,4 +33,7 @@ __novel_search_function__ = {
     "27":"novel_search_unit.zhuishu_shenqi_novel_unit.zhuishu_shenqi_novel_search", # 追书小说
     "28":"novel_search_unit.aiqiyi_wenxue_novel_unit.aiqiyi_wenxue_novel_search", # 爱奇艺小说
     "29":"novel_search_unit.p_onecctv_novel_unit.p_onecctv_novel_search", # ponecctv小说
+    "30":"novel_search_unit.yeduxiaoshuo_novel_unit.yeduxiaoshuo_novel_search",  #夜读小说
+    "31":"novel_search_unit.huaxi_novel_unit.huaxi_novel_search",  #花溪
+
     }
