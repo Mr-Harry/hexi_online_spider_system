@@ -3,9 +3,6 @@ import json
 import random
 from novel_search_unit.novel_spider_settings import NOVEL_CONF
 from novel_search_unit.novel_spider_tools import md5_use, get_proxy, unify_requests, str_similar, clear_text
-import requests
-from pyquery import PyQuery as pq
-from lxml.etree import fromstring
 from lxml import etree
 from fake_useragent import UserAgent
 
@@ -53,7 +50,6 @@ class HuaXi:
 
     def parse_search_novel(self, response, **kwargs) -> list:
         result_list = []
-        doc = pq(response.text)
         html_str = etree.HTML(response.text)
         div_list = html_str.xpath('//div[@class="book"]/div/a')
         # print(len(div_list))
@@ -99,16 +95,16 @@ class HuaXi:
                 qin_quan_url_str)  # 唯一索引，样本task_id 侵权url（md5）
 
             novel_dict['similar_number_float'] = None  # 作品相似度
-            # novel_dict['title_similar_number_float'] = str_similar(clear_text(kwargs.get('yang_ben_title_str', '')),
-            #                                                        clear_text(qin_quan_title_str))  # 标题相似度
-            # novel_dict['author_similar_number_float'] = str_similar(clear_text(kwargs.get('yang_ben_author_str', '')),
-            #                                                         clear_text(qin_quan_author_str))  # 作者名称相似度
+            novel_dict['title_similar_number_float'] = str_similar(clear_text(kwargs.get('yang_ben_title_str', '')),
+                                                                   clear_text(qin_quan_title_str))  # 标题相似度
+            novel_dict['author_similar_number_float'] = str_similar(clear_text(kwargs.get('yang_ben_author_str', '')),
+                                                                    clear_text(qin_quan_author_str))  # 作者名称相似度
             novel_dict['qin_quan_type_int'] = 4  # 侵权类型 4 （0 图文，1，视频，2音频）
             novel_dict['qin_quan_platform_id_int'] = ""  # 默认空
             novel_dict["qin_quan_flag_int"] = -1
-            # if novel_dict["title_similar_number_float"] >= NOVEL_CONF["novel_similar"] and novel_dict[
-            #     "author_similar_number_float"] >= NOVEL_CONF["novel_similar"]:
-            #     novel_dict["qin_quan_flag_int"] = 1
+            if novel_dict["title_similar_number_float"] >= NOVEL_CONF["novel_similar"] and novel_dict[
+                "author_similar_number_float"] >= NOVEL_CONF["novel_similar"]:
+                novel_dict["qin_quan_flag_int"] = 1
             # novel_dict['all_recommend_str'] = ''  # 总推荐数 str
             # novel_dict['month_recommend_str'] = ''  # 月推荐数 str
             # novel_dict['week_recommend_str'] = ''  # 周推荐数 str
@@ -150,13 +146,13 @@ search_novels = HuaXi(use_proxy=True).search_novel
 if __name__ == '__main__':
     yangben_dict = {
         'id': '10000',
-        'yang_ben_author_str': '夏末蔷薇',
-        'yang_ben_title_str': '我',
+        'yang_ben_author_str': '____恪纯',
+        'yang_ben_title_str': '醉夜沉欢：一吻缠情',
         'yang_ben_url_str': 'https://t.shuqi.com/cover/6695029',
         'page_num': 2
     }
     # result = search_novels('豪门擒爱：总裁莫贪欢', **yangben_dict)
     # qidian = ZongHengNovel(use_proxy=True)
-    result = search_novels(yangben_dict['yang_ben_title_str'], **yangben_dict)
+    result = search_novels('我', **yangben_dict)
     print(result)
     print(len(result))
