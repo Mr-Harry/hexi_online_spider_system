@@ -4,6 +4,8 @@
 # time : 2021/1/21
 
 import json
+import time
+
 from video_search_unit.Video_Infringement_Config import config_of_video as config
 from audio_tool import md5_use, unify_duration_format, unit_result_clear_for_video, get_proxy
 from video_search_unit.wangyiyun_search_unit.wangyiyun_app_base_all import mp4_search
@@ -26,7 +28,7 @@ class WangYiYun():
                 dic_["video2_author"] = base_info.get('userProfile', {}).get('nickname', '') if base_info.get(
                     'userProfile', {}) else ''
                 dic_["video2_url"] = self.base_url.format(each.get('baseInfo', {}).get('id')) if base_info.get('status', '') == 1 else self.base_url.format(each.get('baseInfo', {}).get('id')) + '#|lpy|'
-                dic_["video2_pubtime"] = base_info.get('mlogBaseData', {}).get('pubTime', '')
+                dic_["video2_pubtime"] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(base_info.get('mlogBaseData', {}).get('pubTime', '') //1000))
                 dic_["video2_url_hash"] = md5_use((str(kwargs.get('id')) + "|" + dic_.get("video2_url")))
                 dic_["video2_platform"] = "网易云音乐app视频"
                 duration_str_temp = base_info.get('mlogBaseData', {}).get('duration') // 1000
