@@ -71,7 +71,8 @@ Config_of_audio_infringement = {
     "redis_task_set_qq_name":"audio_task_of_qq_json_set", # 存储任务的json格式到集合中
     "redis_task_set_qq_name_zhuanxiang":"redis_task_set_qq_name_zhuanxiang", # 专项的队列
     "redis_task_set_qq_name_bendi_test":"redis_task_set_qq_name_bendi_test__", # 本地测试的队列
-    "redis_task_set_qq_name_bendi_test_lpy":"redis_task_set_qq_name_bendi_test_lpy", # 本地测试的队列 lpy专属
+    "redis_task_set_qq_name_bendi_test_lpy":"task_search_lpy_test", # 本地测试的队列 lpy专属
+    "redis_task_set_qq_name_bendi_test_lpy_":"task_search_lpy_test_", # 本地测试的队列 lpy专属_
     "redis_md5_set_result_url":"audio_md5_url_set", # 存储侵权音频url的md5到集合里 （如果存在集合里就不保存了）
 
     "mysql_port": 55306,
