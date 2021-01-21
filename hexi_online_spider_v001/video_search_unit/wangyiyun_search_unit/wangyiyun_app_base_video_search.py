@@ -24,6 +24,10 @@ class WangYiYun():
             for each in data:
                 dic_ = {}
                 base_info = each.get('baseInfo', {}).get('resource', {})
+                info_ = base_info.get('mlogExtVO', {})
+                dic_["video2_stats_comment"] = info_.get('commentCount', '')
+                dic_["video2_stats_like"] = info_.get('likedCount', '')
+                dic_["video2_stats_view"] = info_.get('playCount', '')
                 dic_["video2_title"] = base_info.get('mlogBaseData', {}).get('text', '')
                 dic_["video2_author"] = base_info.get('userProfile', {}).get('nickname', '') if base_info.get(
                     'userProfile', {}) else ''
@@ -49,10 +53,10 @@ search_songs = WangYiYun().search_songs
 if __name__ == '__main__':
     wy = WangYiYun()
     kwags = json.loads('''
-    {"id": 1, "video_title": "\\u71d5\\u65e0\\u6b47", "video_url": "https://hexi.music/0120/1", "video_author": "\\u848b\\u96ea\\u513f", "video_album": "", "video_platform": "QQ\\u97f3\\u4e500120\\u97f3\\u4e50\\u5e73\\u53f0\\u5341\\u4e94\\u6d4b\\u8bd51_110_1", "video_check_platform": "4444", "task_type": 1, "page_num": 1, "search_key_words": "\\u71d5\\u65e0\\u6b47", "sub_table_name": "sub_1_110"}
+    {"id": 1, "video_title": "\\u71d5\\u65e0\\u6b47", "video_url": "https://hexi.music/0120/1", "video_author": "\\u848b\\u96ea\\u513f", "video_album": "", "video_platform": "QQ\\u97f3\\u4e500120\\u97f3\\u4e50\\u5e73\\u53f0\\u5341\\u4e94\\u6d4b\\u8bd51_110_1", "video_check_platform": "4444", "task_type": 1, "page_num": 3, "search_key_words": "\\u71d5\\u65e0\\u6b47", "sub_table_name": "sub_1_110"}
 
     ''')
     # print(wy.search_songs(song_name="丑八怪",proxy=proxies))
-    res = wy.search_songs('七里香', **kwags)
+    res = wy.search_songs('错季', **kwags)
     print(res)
     print(len(res))
