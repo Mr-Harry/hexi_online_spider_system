@@ -6,6 +6,20 @@
     统一放到 audio_tool里，从audio_tool 统一导入  from audio_tool import *
 3> 抖音以及快手可手动 速度过快未解决 ！！！❎
 
+#操作修改记录 2021 -01 - 21 周四
+1，测试板块遇到错误可以执行返回结果 无法发送邮件，路径 问题
+    进行测试中
+2，修改发送邮件中调用配置路径 ✅
+3，修改抓取系统配置文件 添加测试单元的配置路径 ✅
+4，添加修改时间格式函数 ✅
+
+#操作修改记录 2021 -01 - 20 周三
+1，测试板块执行过程遇到的问题，定时启动 报错 ✅
+    from Audio_Infringement_Config import Config_of_audio_infringement as config
+    ModuleNotFoundError: No module named 'Audio_Infringement_Config'
+    解决方案：
+        更换路径 执行的脚本路径切换到上一级目录
+
 #操作修改记录 2021 -01 - 19 周二
 1，抓取系统的迁移 ✅
 2, 团队成员提交更新代码 ✅
