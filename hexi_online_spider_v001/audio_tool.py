@@ -711,7 +711,7 @@ def unit_video_filter(result_list:list=[], **kwargs):
 # 核对标题的是否存需要过滤
 def title_filter_words(each_dict:dict={}, **kwargs):
     # 视频平台的过滤
-    if kwargs.get('task_type')==1:
+    if kwargs.get('task_type')==1 or kwargs.get('task_type')==6:
         # 确认的关键词
         filter_key_words_list = kwargs.get('filter_key_words_list').lower().split("_")
         yangben_title_clear = clear_text(kwargs.get("video_title"),way_list=config["clear_video_title_way_list"]).lower()
@@ -751,7 +751,7 @@ def title_filter_words(each_dict:dict={}, **kwargs):
 
 # 核对标题的是否存在
 def title_confirm_words(each_dict: dict={}, **kwargs):
-    if kwargs.get('task_type')==1:
+    if kwargs.get('task_type')==1 or kwargs.get('task_type')==6:
         # 确认的关键词
         confirm_key_words = replace_number_to_chines_number(kwargs.get('confirm_key_words'))
         qinquan_title_clear = replace_number_to_chines_number(clear_text(each_dict.get("video2_title"), way_list=config["clear_video_title_way_list"]).lower())
