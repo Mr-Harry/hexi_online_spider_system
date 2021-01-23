@@ -8,4 +8,6 @@ __engine_search_function__ = {
             "2":"engine_search_unit.shenma_engine_unit.shenma_engine_search", # 神马搜索
             "3":"engine_search_unit.so360_engine_unit.so360_engine_search", # 360搜索
             "4":"engine_search_unit.sougou_engine_unit.sougou_engine_search", # 搜狗搜索
+            "5":"engine_search_unit.jinri_toutiao_news_search_unit.jinri_toutiao_zhannei_search_cartoon_search", # 今日头条文章搜索
+            "6":"engine_search_unit.beijingshijian_news_search.beijin_shijian_search", # 北京时间文章搜索
 }
