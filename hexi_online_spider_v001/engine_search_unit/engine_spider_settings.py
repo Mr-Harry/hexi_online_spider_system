@@ -37,4 +37,6 @@ ENGINE_CONF = {
     "sougou_engine_offset": {"pagesize": 10, "start_page": 1},
     # 搜狗微信搜索 weixin.sogou.com
     "sougou_weixin_gongzhonghao_engine_offset": {"pagesize": 10, "start_page": 1},
+    # 今日头条
+    "jinri_search_offset":{"pagesize": 20, "start_page": 0},
 }
