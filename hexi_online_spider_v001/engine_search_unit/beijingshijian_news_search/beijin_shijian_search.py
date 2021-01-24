@@ -47,7 +47,7 @@ class BeiJinShiJian():
 
         try:
             info = response.text[4:-1]
-            print(info)
+            # print(info)
             response_json = json.loads(info)
         except :
             return []
