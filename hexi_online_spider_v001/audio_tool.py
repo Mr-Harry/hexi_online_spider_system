@@ -187,7 +187,7 @@ def mysql_save_to_current_result_table(result):
             # print("dao le zhe li hree",each)
             sql_save_info = "insert into {}(audio_flag_str1,audio_flag_str2,title_similar_number,author_name_similar_number,yangben_URL,yangben_title,yangben_author_name,yangben_text,qinquan_text,qinquan_title,qinquan_author_name,qinquan_URL,qinquan_url_hash,qinquan_platform,yangben_platform,t,qinquan_type,qingquan_flag,flag_int,t_timestamp,qinquan_id_str,yangben_task_id) values('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}')".format(
                 table_name,timestamp_strftime("%Y%m%d"),each["search_key_words"],str_similar(each["qinquan_title"][:28],each["engine_title"][:28]),str_similar(each["engine_author"],""),each["engine_url"], pymysql.escape_string(each["engine_title"]),
-                pymysql.escape_string(""),
+                pymysql.escape_string(each.get("engine_author"), ""),
                 pymysql.escape_string(''), pymysql.escape_string(''),
                 pymysql.escape_string(each["qinquan_title"]), pymysql.escape_string(""),
                 each["qinquan_URL"], str(each["id"])+"|"+md5_use(each["qinquan_URL"]),
