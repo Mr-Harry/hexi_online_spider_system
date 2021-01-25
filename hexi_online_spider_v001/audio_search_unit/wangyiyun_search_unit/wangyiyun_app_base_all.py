@@ -69,7 +69,7 @@ AES_EBC = EncryptDate()
 checkToken = ''
 
 def sekiro_get_params(path, DICT):
-    for i in range(5):
+    for i in range(3):
         try:
             params = {
                 "api": path,
@@ -77,9 +77,9 @@ def sekiro_get_params(path, DICT):
                 'group': 'wangyiyun',
                 'action': 'entrypto'
             }
-            url = 'https://www.qxp.red/asyncInvoke'
+            url = 'https://www.qxp.red/asyncinvoke'
             try:
-                res = requests.post(url, data=params, timeout=1.5, proxies=get_proxy())
+                res = requests.get(url, params=params, timeout=1.5, proxies=get_proxy())
                 # print(res.json())
                 return res.json()['data']
             except:
@@ -550,6 +550,8 @@ def wyy_comments(opusId,page=1):
     # print(res)
     return res
 if __name__ == "__main__":
+    info = mp4_search("告白气球")
+    print(info)
     pass
     # # keyword = '告白气球'
     # # page = 1
