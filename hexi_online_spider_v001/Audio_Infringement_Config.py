@@ -111,7 +111,7 @@ Config_of_audio_infringement = {
                                                                  "audio_task_of_qq_json_set") , # 存储任务的json格式到集合中
     "redis_task_set_qq_name_zhuanxiang":redis_get_spider_struct_key_info().get("redis_task_set_qq_name_zhuanxiang",
                                                                             "redis_task_set_qq_name_zhuanxiang"), # 专项的队列
-    "redis_task_set_qq_name_bendi_test":"task_search_lpy_test", # 本地测试的队列
+    "redis_task_set_qq_name_bendi_test":"redis_task_set_qq_name_bendi_test", # 本地测试的队列
     "redis_task_set_qq_name_bendi_test_lpy":redis_get_spider_struct_key_info().get("redis_task_set_qq_name_bendi_test_lpy",
                                                                                 "audio_task_of_qq_json_set") , # 新增抓取队列 1
     "redis_task_set_qq_name_bendi_test_lpy_":redis_get_spider_struct_key_info().get("redis_task_set_qq_name_bendi_test_lpy_",
