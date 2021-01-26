@@ -32,7 +32,7 @@ class WangYiYunNew(object):
                 dic_["audio2_albumid"] = ""
                 url = self.base_url.format(each.get('id', '')) if each.get('privilege', {}).get('st') == 0 else self.base_url.format(each.get('id', '')) + '#|lpy|'
                 dic_["audio2_url"] = url
-                dic_["audio2_url_hash"] = md5_use(str(kwargs.get('id')) + "|" +dic_["audio2_url"])
+                dic_["audio2_url_hash"] = md5_use(dic_["audio2_url"])
                 result_list.append(dic_)
         return result_list
 
