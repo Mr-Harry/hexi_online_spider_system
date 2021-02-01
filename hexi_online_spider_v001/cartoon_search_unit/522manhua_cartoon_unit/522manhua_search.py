@@ -83,8 +83,13 @@ class WuErErManHua:
                     continue
 
                 # qin_quan_info_temp = qin_quan_info_data.xpath('//div[@class="comic_deCon autoHeight"]/ul[@class="comic_deCon_liO"]/li')[0]
-                qin_quan_info_temp = qin_quan_info_data.xpath("//div[@class='sub_r']/p[@class='txtItme']")[1]
-                qin_quan_author_str = ''.join(qin_quan_info_temp.xpath('./text()')).replace(' ','').replace('\r','').replace('\n','')  # 侵权作者
+                try:
+                    qin_quan_author_str = ''.join(qin_quan_info_data.xpath("//div[@class='sub_r']/p[@class='txtItme']//text()")[3]).replace(' ','').replace('\r','').replace('\n','')
+                except:
+                    continue
+                # print(qin_quan_author_str)
+                # exit(0)
+                # qin_quan_author_str = ''.join(qin_quan_info_temp.xpath('./text()')).replace(' ','').replace('\r','').replace('\n','')  # 侵权作者
                 if not qin_quan_author_str:
                     continue
                 qin_quan_title_str = ''.join(qin_quan_info_data.xpath('//div[@class="title"]/h1/text()'))  # 侵权标题
