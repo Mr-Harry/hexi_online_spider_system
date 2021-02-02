@@ -94,7 +94,7 @@ class DongManWuCartoon:
                 qin_quan_dict['yang_ben_batch_id_int'] = kwargs.get('yang_ben_batch_id_int', '')  # 样本批次ID
 
                 qin_quan_dict['search_key_words_str'] = kwargs.get('search_key_words_str', '')  # 搜索关键词
-                qin_quan_dict['qin_quan_platform_str'] = '动漫屋'  # 侵权平台
+                qin_quan_dict['qin_quan_platform_str'] = '漫画屋'  # 侵权平台
                 qin_quan_dict['qin_quan_author_str'] = qin_quan_author_str  # 侵权作者
                 qin_quan_dict['qin_quan_title_str'] = qin_quan_title_str  # 侵权标题
                 qin_quan_dict['qin_quan_url_str'] = qin_quan_url_str  # 侵权链接
