@@ -28,9 +28,13 @@ __video_search_function__ = {
     '19': "video_search_unit.kuai_shou_search_unit.kuaishou_video_search",  # 快手短视频
     '20': "video_search_unit.xigua_search_unit.xigua_video_search",  # 西瓜视频
     '21': "video_search_unit.weibo_search_unit.weibo_video_search",  # 微博视频
+    '22': "video_search_unit.wangyiyun_search_unit.wangyiyun_app_base_video_search",  # 网易云音乐app视频
 
 
     '200':"video_search_unit.zhanqi_search_unit.zhanqi_video_search", # 战旗直播
     '201':"video_search_unit.liujianfang_search_unit.liujianfang_video_search", # 六间房
+
+
+    '4444':"video_search_unit.wangyiyun_search_unit.new_wangyiyun_app_video_search",  # New网易云音乐app视频
 
 }

@@ -5,6 +5,7 @@
 
 import json
 import random
+import re
 from urllib import parse
 from urllib.parse import urlencode
 
@@ -68,9 +69,12 @@ class ZhuiShuShenQiNovel:
             for n_l in novel_list_data:
                 qin_quan_author_str = "".join(n_l.xpath('.//div[@class="right"]/p/text()')[0]).replace('\n', '').replace('\t', '')  # 侵权作者
                 qin_quan_title_str = "".join(n_l.xpath('.//h4[@class="name"]/text()'))  # 侵权标题
-                qin_quan_url_str = "https://m.zhuishushenqi.com" + "".join(n_l.xpath('./@href')).split('?')[0]  # 侵权链接
-                qin_quan_id_int = self.get_qin_quan_id_int(qin_quan_url_str)  # 样本ID 数值类型
-                qin_quan_mid_str = str(qin_quan_id_int)  # 侵权ID 字符串形式
+                qin_quan_url_str = "".join(n_l.xpath('./@data-exposure-params'))  # 侵权链接
+                # qin_quan_id_int = self.get_qin_quan_id_int(qin_quan_url_str)  # 样本ID 数值类型
+                qin_quan_id_int = ""  # 样本ID 数值类型
+                qin_quan_mid_str = str(re.findall(r"##26\|(.*?)##",qin_quan_url_str)[0])  # 侵权ID 字符串形式
+                qin_quan_url_str = "https://m.zhuishushenqi.com/book/" + qin_quan_mid_str
+
                 book_type_str = "".join(n_l.xpath('.//div[@class="right"]/p/text()')[1]).replace('\n', '').replace('\t', '')
 
                 yangben_id = kwargs.get('id', '')

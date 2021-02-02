@@ -346,7 +346,7 @@ class audio_plarform_search():
     def get_search_task(self,tr_name): # 生成异步任务
         print("{}开始".format(tr_name))
         result_list = []
-        task_info = redis_get_tasks_from_redis(task_name=config["redis_task_set_qq_name_bendi_test_lpy"],task_numbers=self.task_numbers) # 从redis 获取任务 接下来要进行判断 进行异步请求的包装
+        task_info = redis_get_tasks_from_redis(task_name=config["redis_task_set_qq_name_bendi_test_lpy_"],task_numbers=self.task_numbers) # 从redis 获取任务 接下来要进行判断 进行异步请求的包装
         if task_info: # 有任务的时候跑 没有的时候暂停十分钟
             for each in task_info:
                 each = json.loads(each)
@@ -516,7 +516,7 @@ if __name__ == '__main__':
     #         start_time = int(time.time())
     #         audio_xyy_man.audio_main()
     #         print("耗时： {}".format(int(time.time()) - start_time))
-    #         flag = redis_check_key_exit(task_name=config["redis_task_set_qq_name_bendi_test_lpy"])
+    #         flag = redis_check_key_exit(task_name=config["redis_task_set_qq_name_bendi_test_lpy_"])
     #         if flag:
     #             pass
     #         else:
@@ -532,7 +532,7 @@ if __name__ == '__main__':
     start_time = int(time.time())
     audio_xyy_man.audio_main()
     print("耗时： {}".format(int(time.time()) - start_time))
-    flag = redis_check_key_exit(task_name=config["redis_task_set_qq_name_bendi_test_lpy"])
+    flag = redis_check_key_exit(task_name=config["redis_task_set_qq_name_bendi_test_lpy_"])
     if flag:
         pass
     else:

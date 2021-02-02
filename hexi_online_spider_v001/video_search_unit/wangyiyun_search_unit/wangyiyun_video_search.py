@@ -32,6 +32,7 @@ class WangYiYun():
             'sec-fetch-dest': 'empty',
             'referer': 'https://music.163.com/song?id=1426301364',
             'accept-language': 'zh-CN,zh;q=0.9',
+            # 'cookie': '_iuqxldmzr_=32; _ntes_nnid=fcfbe9e226cd7da8cc67469788a2717e,1609925344769; _ntes_nuid=fcfbe9e226cd7da8cc67469788a2717e; NMTID=00ONJsKFemAbkOj60y_jnXmsR1Udi0AAAF21wc_Vg; WM_TID=FXQ1k5LxdBRAUQQFVEc%2BPOcrUT8lkMSS; MUSIC_U=07bfd99d72eff1ead8199404b05b8aaec91c2d661ffb9e23076db21dfa48d321d106471d18c1d4a4; __csrf=bce171211a81cf46baee6d1a973a8782; ntes_kaola_ad=1; WEVNSM=1.0.0; WNMCID=kdezrv.1610940314698.01.0; ne_analysis_trace_id=1611155164128; s_n_f_l_n3=bca4347cb421eaee1611155164136; _antanalysis_s_id=1611155165120; UM_distinctid=1772054d079a49-04fd57a1bec11f-171d4b58-13c680-1772054d07a219; vinfo_n_f_l_n3=bca4347cb421eaee.1.0.1611155164134.0.1611155199681; WM_NI=AC2I3SPARUmsLaXEJJVlToF2I%2FcAIQZakeMs0L8yKTiN2G48ParPzY8ABfH0b3VHhYNSuytPVRF3h3pQE1Plzk9Dv%2B8kJb79nbfbdGXQpcR0hY%2BqHpOJDwil0rlB9vDzWVI%3D; WM_NIKE=9ca17ae2e6ffcda170e2e6ee92ce70b3aab8a4aa5faaac8ab2d85a838f9faff445a5a8ad9ab75ea588878acb2af0fea7c3b92a839dfeaab259949f9eb6f07990bf98a6c94296b49c90c53a8bf1ada2cc5b9abfa586d079f494f89aca60ab92fea8b73494bfbeb1f953fc9f8e87cb3ca2ed9aa9eb538e8dbb9af75c968e8ad4eb39b48f8bd2d368bab5f7a5f521fcb58683b633aebeaa83e74d9c8fc084d13cac87e592cb7c8d968c98ec68f4aea4a3bc7e88a699b7cc37e2a3; JSESSIONID-WYYY=XDCsUuG9gVthwGO4to%2FbWB05Jl4Hl4QvWxDQm7jj9%5COWo%2Bi4UasNluFb9ZF%5CvFI0u8rn8WclHg1%5CkW%5C3TWMARhcTQ2Q00NOPAhK9XuBQbeqx%2FtsnCbb5Xv0WCiEYJADQxwUDS30CNo6Ih4VVO6FQ%2BcfCHobicrq%5CYM71UykUzXs%2FgeKm%3A1611232813285'
             # 'cookie': '_iuqxldmzr_=32; _ntes_nnid=5f8ee04e745645d13d3f711c76769afe,1593048942478; _ntes_nuid=5f8ee04e745645d13d3f711c76769afe; WM_TID=XqvK2%2FtWaSBEUBRBEEN7XejGE%2FL0h6Vq; WM_NI=iN6dugAs39cIm2K2R9ox28GszTm5oRjcvJCcyIuaI1dccEVSjaHEwhc8FuERfkh3s%2FFP0zniMA5P4vqS4H3TJKdQofPqezDPP4IR5ApTjuqeNIJNZkCvHMSY6TtEkCZUS3k%3D; WM_NIKE=9ca17ae2e6ffcda170e2e6eeb2e57dbababf88b879a8b08fa2d84f869f9fbaaa50a3f599a5d650939b8dadd52af0fea7c3b92aab92fa85f86d83adfddae243afee85d3d133ada8fed9c679ba8ca3d6ee5aaabdbaabc269bb97bb82cc3ba8bdada6d559aabf88a6f664a1e88a96c85aa6b5a8d4f2258690009bed638f9ffbb1b77eb38dfca9b2608a95acb2ee6e94afab9bc75c94ec87b3b84bb48ca696f46f8e9786afd96181aa88aed253f68cbca6ea499a8b9dd4ea37e2a3; JSESSIONID-WYYY=tI8MIKMCRBuyCYnUJMCyUTlp%2Fufv5xIfCquvp7PJ4%2BuXod%5CXH%5CB0icDZw8TNlwHUHOW%2B2t%2BCuXyC4VZ%5C19OrzaDE%5Ck0F0dAZQh7KcVxUoHKpqUdiVzPu8NxCK9cJRG%5C%5CPTvtqxjFerd1%2BBa4%2F%5C8PESa4pvvRaQF6jljjsibX%5CrcPsH0I%3A1593347447142',
             # 'cookie': '_iuqxldmzr_=32; _ntes_nnid=474cdac11e28542e8ef8e079a46725c8,1574167157959; _ntes_nuid=474cdac11e28542e8ef8e079a46725c8; WM_TID=IbY1DOb8iUdAAEFFUUY47dAf2LTYB55E; ntes_kaola_ad=1; mail_psc_fingerprint=1de574c411f6e715dbf66c8f168b658d; nts_mail_user=daybreak_lpy@163.com:-1:1; P_INFO=daybreak_lpy@163.com|1596422302|0|163|00&99|bej&1596159242&mail163#bej&null#10#0#0|&0|mail163|daybreak_lpy@163.com; vinfo_n_f_l_n3=f1666c5df82c0744.1.0.1596422276768.0.1596423848279; JSESSIONID-WYYY=Wtbu%2B6%2Fu%2Faydehr2gtC2xTUuW2aP3QMIg1RCSi%5Ciuq2zAddd04ncYagHYXlxg9ff7hRhl5TuzMeFtYFZtQVhmqZUYHzIPJkB11H2ek8dPO8XsWKMK%2BEFcW82rUOgT%2FkkX2HZIjZINrJNdOdSvTv0%2BTRl7JCzk%2BXBnzIdO7fzATk1YC2N%3A1596609805224; WM_NI=QzV1378M8rNdFEh09tXovaNJ%2Fs%2FGSaJqyjfatPGy30iqI04xqKa2pHUWru8KoxK8ZuZAAGdffIZ7hWGSPkB%2BjfKRrwm%2F4RqN0K85U2UMlUfERj54G23iCOlBW5XnCCNiYmg%3D; WM_NIKE=9ca17ae2e6ffcda170e2e6ee93ae67878b8583f44fb29a8fa2d14e939e8abab65df8afa2afd559f3a7b8d8e52af0fea7c3b92a93a69ad2b23dfc93f893cd70869ba8d1bc809cb1ba82cd42edade1a8d26b8aafb78be56bb890899ab23cabaf87d1b774b395afd3f3449789be96bb41ada885d9d97f9a9f8fa8e76ea69796d8eb5d858da08cc121aaba85b3f17daff1fcb3f446f495f8d6d83a9793a4b6e54f92b6fbd5c63af1b78db0ef4a95eb988fc2498eb7978ee637e2a3',
         }
@@ -116,6 +117,7 @@ class WangYiYun():
             dic_["video2_pubtime"] = ""
             dic_["video2_url_hash"] = md5_use(dic_.get("video2_url"))
             dic_["video2_platform"] = "网易云音乐视频"
+            dic_["video2_stats_view"] = each.get('playTime')
             duration_str_temp = each.get('durationms') // 1000
             duration, duration_str = unify_duration_format(duration_str_temp)
             dic_["video2_duration"] = duration  # 时长（秒数）
@@ -261,6 +263,7 @@ class WangYiYun():
         # print(detail_info_list)
         return detail_info_list
 
+
 search_songs = WangYiYun(use_proxy=True).search_songs
 if __name__ == '__main__':
     wy = WangYiYun(use_proxy=True)
@@ -276,22 +279,22 @@ if __name__ == '__main__':
         "http": proxy,
         "https": proxy,
     }
-    kwags = {
-        "id": 574979,
-        "video_title": "班淑传奇",
-        "video_url": "https://v.youku.com/v_show/id_XMTM3MjQ5NjEzMg==.html?spm=a2h0c.8166622.PhoneSokuProgram_1.dselectbutton_1&showid=f2103904e95911e4b2ad#班淑传奇第38集",
-        "video_author": "",
-        "video_album": "",
-        "video_platform": "优酷1030测试电视剧一部4_55_1",
-        "video_check_platform": "2",
-        "sub_table_name": "sub_4_55",
-        "task_type": 1,
-        "search_key_words": "班淑传奇",
-        "confirm_key_words": "食人大叔爱上猎物",
-        "filter_key_words_list": "片花_穿帮_片头曲_片尾曲_预告_插曲_翻唱_翻唱_发布会_演唱_演奏_合唱_专访_合奏_打call_宣传_原唱_cover_原曲_片花_穿帮_音乐_主题歌_有声小说_片头_片尾",
-        # "filter_key_words_list": "食人",
-    }
+    kwags = {}
+    #     "id": 574979,
+    #     "video_title": "班淑传奇",
+    #     "video_url": "https://v.youku.com/v_show/id_XMTM3MjQ5NjEzMg==.html?spm=a2h0c.8166622.PhoneSokuProgram_1.dselectbutton_1&showid=f2103904e95911e4b2ad#班淑传奇第38集",
+    #     "video_author": "",
+    #     "video_album": "",
+    #     "video_platform": "优酷1030测试电视剧一部4_55_1",
+    #     "video_check_platform": "2",
+    #     "sub_table_name": "sub_4_55",
+    #     "task_type": 1,
+    #     # "search_key_words": "班淑传奇",
+    #     # "confirm_key_words": "食人大叔爱上猎物",
+    #     # "filter_key_words_list": "片花_穿帮_片头曲_片尾曲_预告_插曲_翻唱_翻唱_发布会_演唱_演奏_合唱_专访_合奏_打call_宣传_原唱_cover_原曲_片花_穿帮_音乐_主题歌_有声小说_片头_片尾",
+    #     # "filter_key_words_list": "食人",
+    # }
     # print(wy.search_songs(song_name="丑八怪",proxy=proxies))
-    res = wy.search_songs('爱', **kwags)
+    res = wy.search_songs('告白', **kwags)
     print(res)
     print(len(res))

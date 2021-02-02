@@ -117,10 +117,9 @@ def mysql_save_to_current_result_table(result):
             each["video2_author"] = video2_author
             # if each["video2_id"]:
             #     video2_id = each["video2_id"]
-
             # sql_save_info = "insert into {}(audio_flag_str1,audio_flag_str2,title_similar_number,author_name_similar_number,yangben_URL,yangben_title,yangben_author_name,yangben_text,qinquan_text,qinquan_title,qinquan_author_name,qinquan_URL,qinquan_url_hash,qinquan_platform,yangben_platform,t,qinquan_type,qingquan_flag,flag_int,t_timestamp,qinquan_id_str,yangben_task_id) values('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}')".format(
-            sql_save_info = "insert into {}(audio_flag_str1,audio_flag_str2,title_similar_number,author_name_similar_number,yangben_URL,yangben_title,yangben_author_name,yangben_text,qinquan_text,qinquan_title,qinquan_author_name,qinquan_URL,qinquan_url_hash,qinquan_platform,yangben_platform,t,qinquan_type,qingquan_flag,flag_int,t_timestamp,qinquan_id_str,yangben_task_id,duration_str,duration) values('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}')".format(
-                table_name,timestamp_strftime("%Y%m%d"),each["search_key_words"],str_similar(each["video2_title"],each["video_title"]),str_similar(each["video_author"],each["video2_author"]),each["video_url"], pymysql.escape_string(each["video_title"]),
+            sql_save_info = "insert into {}(stats_like,stats_view,stats_comment,qinquan_pub_time,audio_flag_str1,audio_flag_str2,title_similar_number,author_name_similar_number,yangben_URL,yangben_title,yangben_author_name,yangben_text,qinquan_text,qinquan_title,qinquan_author_name,qinquan_URL,qinquan_url_hash,qinquan_platform,yangben_platform,t,qinquan_type,qingquan_flag,flag_int,t_timestamp,qinquan_id_str,yangben_task_id,duration_str,duration) values('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}')".format(
+                table_name,each.get("video2_stats_like", ""), each.get("video2_stats_view", ""), each.get("video2_stats_comment", ""),each.get("video2_pubtime",""),timestamp_strftime("%Y%m%d"),each["search_key_words"],str_similar(each["video2_title"],each["video_title"]),str_similar(each["video_author"],each["video2_author"]),each["video_url"], pymysql.escape_string(each["video_title"]),
                 pymysql.escape_string(each["video_author"]),
                 pymysql.escape_string(''), pymysql.escape_string(''),
                 pymysql.escape_string(each["video2_title"]), pymysql.escape_string(each["video2_author"]),
@@ -188,7 +187,7 @@ def mysql_save_to_current_result_table(result):
             # print("dao le zhe li hree",each)
             sql_save_info = "insert into {}(audio_flag_str1,audio_flag_str2,title_similar_number,author_name_similar_number,yangben_URL,yangben_title,yangben_author_name,yangben_text,qinquan_text,qinquan_title,qinquan_author_name,qinquan_URL,qinquan_url_hash,qinquan_platform,yangben_platform,t,qinquan_type,qingquan_flag,flag_int,t_timestamp,qinquan_id_str,yangben_task_id) values('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}')".format(
                 table_name,timestamp_strftime("%Y%m%d"),each["search_key_words"],str_similar(each["qinquan_title"][:28],each["engine_title"][:28]),str_similar(each["engine_author"],""),each["engine_url"], pymysql.escape_string(each["engine_title"]),
-                pymysql.escape_string(""),
+                pymysql.escape_string(each.get("engine_author"), ""),
                 pymysql.escape_string(''), pymysql.escape_string(''),
                 pymysql.escape_string(each["qinquan_title"]), pymysql.escape_string(""),
                 each["qinquan_URL"], str(each["id"])+"|"+md5_use(each["qinquan_URL"]),
@@ -219,8 +218,8 @@ def mysql_save_to_current_result_table(result):
 
                 for each_task_id in each["tvplay_task_list"]: # 获得的是主任务ID
 
-                    sql_save_info = "insert into {}(audio_flag_str1,audio_flag_str2,title_similar_number,author_name_similar_number,yangben_URL,yangben_title,yangben_author_name,yangben_text,qinquan_text,qinquan_title,qinquan_author_name,qinquan_URL,qinquan_url_hash,qinquan_platform,yangben_platform,t,qinquan_type,qingquan_flag,flag_int,t_timestamp,qinquan_id_str,yangben_task_id,duration_str,duration) values('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}')".format(
-                        table_name,timestamp_strftime("%Y%m%d"),each["search_key_words"],str_similar(each["video2_title"],each["video_title"]),str_similar(each["video_author"],each["video2_author"]),each["video_url"], pymysql.escape_string(each["video_title"]),
+                    sql_save_info = "insert into {}(stats_like,stats_view,stats_comment,qinquan_pub_time,audio_flag_str1,audio_flag_str2,title_similar_number,author_name_similar_number,yangben_URL,yangben_title,yangben_author_name,yangben_text,qinquan_text,qinquan_title,qinquan_author_name,qinquan_URL,qinquan_url_hash,qinquan_platform,yangben_platform,t,qinquan_type,qingquan_flag,flag_int,t_timestamp,qinquan_id_str,yangben_task_id,duration_str,duration) values('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}')".format(
+                        table_name,each.get("video2_stats_like", ""), each.get("video2_stats_view", ""), each.get("video2_stats_comment", ""),each.get("video2_pubtime",""),timestamp_strftime("%Y%m%d"),each["search_key_words"],str_similar(each["video2_title"],each["video_title"]),str_similar(each["video_author"],each["video2_author"]),each["video_url"], pymysql.escape_string(each["video_title"]),
                         pymysql.escape_string(each["video_author"]),
                         pymysql.escape_string(''), pymysql.escape_string(''),
                         pymysql.escape_string(each["video2_title"]), pymysql.escape_string(each["video2_author"]),
@@ -712,7 +711,7 @@ def unit_video_filter(result_list:list=[], **kwargs):
 # 核对标题的是否存需要过滤
 def title_filter_words(each_dict:dict={}, **kwargs):
     # 视频平台的过滤
-    if kwargs.get('task_type')==1:
+    if kwargs.get('task_type')==1 or kwargs.get('task_type')==6:
         # 确认的关键词
         filter_key_words_list = kwargs.get('filter_key_words_list').lower().split("_")
         yangben_title_clear = clear_text(kwargs.get("video_title"),way_list=config["clear_video_title_way_list"]).lower()
@@ -752,7 +751,7 @@ def title_filter_words(each_dict:dict={}, **kwargs):
 
 # 核对标题的是否存在
 def title_confirm_words(each_dict: dict={}, **kwargs):
-    if kwargs.get('task_type')==1:
+    if kwargs.get('task_type')==1 or kwargs.get('task_type')==6:
         # 确认的关键词
         confirm_key_words = replace_number_to_chines_number(kwargs.get('confirm_key_words'))
         qinquan_title_clear = replace_number_to_chines_number(clear_text(each_dict.get("video2_title"), way_list=config["clear_video_title_way_list"]).lower())
@@ -922,6 +921,41 @@ def unit_result_clear_for_audio(result_list:list=[], **kwargs):
 
 def url_value_to_gb2312_upper(value):
     return str(value.replace(' ', '').encode('gb2312')).lstrip("b\'").replace("'", '').replace("\\x", "%").upper()
+
+# 时间格式的万能公式
+def get_format_date(newsTime,format_time='%a, %d %b %Y %H:%M:%S'):
+    """
+    # https://docs.python.org/3/library/time.html # 时间
+    :arg
+        %a  语言环境的缩写工作日名称。
+        %A  语言环境的完整工作日名称。
+        %b  语言环境的缩写月份名称。
+        %B  语言环境的完整月份名称。
+        %c  语言环境的适当日期和时间表示。
+        %d  以十进制数[01,31]表示的月份中的一天。
+        %H  小时（24小时制），为十进制数字[00,23]。
+        %I  小时（12小时制）为十进制数字[01,12]。
+        %j  一年中的天，以十进制数字[001,366]为准。
+        %m  以十进制数字[01,12]表示的月份。
+        %M  以小数形式分钟[00,59]。
+        %p  相当于AM或PM的语言环境。
+        %S  第二个十进制数字[00,61]。
+        %U  一年中的周号（星期日为一周的第一天），以十进制数[00,53]。新年中第一个星期日之前的所有天均视为第0周。
+        %w  工作日为十进制数字[0（Sunday），6]。
+        %W  一年中的星期号（星期一为星期的第一天），以十进制数[00,53]。第一个星期一之前的新的一年中的所有天均视为在第0周。
+        %x  语言环境的适当日期表示形式。
+        %X  语言环境的适当时间表示形式。
+        %y  没有世纪的年份作为十进制数字[00,99]。
+        %Y  以世纪作为十进制数字的年份。
+        %z  时区偏移量，表示与UTC / GMT的正或负时差，格式为+ HHMM或-HHMM，其中H代表十进制小时数字，M代表十进制分钟数字[-23：59，+23：59]。
+        %Z  时区名称（如果不存在时区，则没有字符）。
+        %%  文字'%'字符。
+    """
+    # newsTime = 'Sun, 23 Apr 2017 05:15:05 GMT'
+    # GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
+    newsTime = datetime.datetime.strptime(newsTime, format_time)
+    # print(newsTime)  # 2017-04-23 05:15:05
+    return newsTime
 
 if __name__ == '__main__':
     # 测试阿拉伯替换的问题 数字中文之间的转换

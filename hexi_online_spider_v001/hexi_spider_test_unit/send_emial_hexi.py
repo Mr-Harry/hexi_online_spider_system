@@ -23,7 +23,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from email.header import Header
-from hexi_spider_test_unit.Spider_Test_Config import  Test_Config_Setting as test_config
+from Audio_Infringement_Config import  Test_Config_Setting as test_config
 #
 # ind = {
 #     # 邮箱服务

@@ -7,7 +7,7 @@ import time
 import json
 
 from Audio_Infringement_Config import Config_of_audio_infringement as config
-from hexi_spider_test_unit.Spider_Test_Config import  Test_Config_Setting as test_config
+from Audio_Infringement_Config import Test_Config_Setting as test_config
 from audio_tool import timestamp_strftime
 from hexi_spider_test_unit.send_emial_hexi import Send_email
 
@@ -167,6 +167,11 @@ def run(test_type_list=[]):
     Plarform_Test(use_proxy=True).test_run(test_type_list=test_type_list)
 
 if __name__ == '__main__':
+    # 测试发送邮件
+    # print("开始测试发送邮件！！！")
+    # Send_email("test20210121",**test_config)
+    # print("ooooo")
+    # exit(0)
     # 测试模块
     # [1,2,4,5,7]
     # 2 音频
