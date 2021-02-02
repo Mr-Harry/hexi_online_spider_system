@@ -29,7 +29,7 @@ class AiYouManCartoon:
         }
         self.api_qin_quan_search_key = ''
         self.search_base_url = "https://www.iyouman.com/api/getsortlist/?product_id=4&productname=aym&platformname=pc&search_key={}&page={}"
-        self.qin_quan_search_url_pre = "http://www.1manhua.net"
+        self.qin_quan_search_url_pre = "http://www.iyouman.com"
 
     # 转意函数
     def utf8_str(self, num):
@@ -94,7 +94,7 @@ class AiYouManCartoon:
                 qin_quan_dict['yang_ben_batch_id_int'] = kwargs.get('yang_ben_batch_id_int', '')  # 样本批次ID
 
                 qin_quan_dict['search_key_words_str'] = kwargs.get('search_key_words_str', '')  # 搜索关键词
-                qin_quan_dict['qin_quan_platform_str'] = '爱漫画'  # 侵权平台
+                qin_quan_dict['qin_quan_platform_str'] = '爱优漫'  # 侵权平台
                 qin_quan_dict['qin_quan_author_str'] = qin_quan_author_str  # 侵权作者
                 qin_quan_dict['qin_quan_title_str'] = qin_quan_title_str  # 侵权标题
                 qin_quan_dict['qin_quan_url_str'] = response.url  # 侵权链接
