@@ -82,13 +82,13 @@ Config_of_audio_infringement = {
 
 
     # 加强版 10/秒
-    "proxyHost": "115.227.49.100",
+    "proxyHost": "u4748.10.tp.16yun.cn",
     "proxyPort": "6446",
     # 代理隧道验证信息
     "proxyUser": "16YZSZLD",
     "proxyPass": "039923",
     # 5/秒
-    # "proxyHost": "61.132.93.14",
+    # "proxyHost": "u4748.10.tn.16yun.cn",
     # "proxyPort": "6442",
     # # 代理隧道验证信息
     # "proxyUser": "16BEFXMP",
