@@ -30,6 +30,7 @@ def redis_get_spider_struct_key_info(task_name=Spider_Struct_Dic,
     con = redis.Redis(host=host, port=port, decode_responses=decode_responses, db=db, password=password)
     info = con.get(task_name)
     # print(info,"asdfasdfasdf")
+    con.close()
     if info:
         return eval(info)
     else:
@@ -80,24 +81,18 @@ Config_of_audio_infringement = {
 
 
 
-    # 普通版10/秒
-    # "proxyHost" : "61.132.93.14",
-    # "proxyPort" : "6442",
-    # # 代理隧道验证信息
-    # "proxyUser" : "16BEFXMP",
-    # "proxyPass" : "708166",
-    # 加强版 5/秒
-    # "proxyHost" : "115.227.49.100",
-    # "proxyPort" : "6445",
-    # # 代理隧道验证信息
-    # "proxyUser" : "16CGVJXK",
-    # "proxyPass" : "476720",
     # 加强版 10/秒
     "proxyHost": "115.227.49.100",
     "proxyPort": "6446",
     # 代理隧道验证信息
     "proxyUser": "16YZSZLD",
     "proxyPass": "039923",
+    # 5/秒
+    # "proxyHost": "61.132.93.14",
+    # "proxyPort": "6442",
+    # # 代理隧道验证信息
+    # "proxyUser": "16BEFXMP",
+    # "proxyPass": "708166",
 
     "search_audio_step":0.5, # 查询音乐平台侵权的列表搜索比例（一页10条数据取其中百分之多少）
     "redis_host": Redis_Config["redis_host"],  #
@@ -153,59 +148,6 @@ Config_of_audio_infringement = {
 
 
 
-# 本地测试配置
-# Config_of_audio_infringement = {
-#
-#     "wangyiyun_search_offset":{"start":0,"end":1,"pagesize":30},# 0 开始 网易云
-#     "xi_ma_la_ya":{"start":1,"end":2,"pagesize":30},# 0 开始 喜马拉雅
-#     "xiami_search_offset":{"start":1,"end":2,"pagesize":30},# 1 开始 虾米音乐
-#     "qianqian_search_offset":{"start":0,"end":1,"pagesize":20},# 0 开始 翻页pagesize*offset 千千音乐
-#     "qingka_search_offset":{"start":0,"end":1,"pagesize":20},# 0 开始 翻页pagesize*offset 千千音乐
-#
-#     # 10/秒
-#     "proxyHost" : "61.132.93.14",
-#     "proxyPort" : "6442",
-#     # 代理隧道验证信息
-#     "proxyUser" : "16BEFXMP",
-#     "proxyPass" : "708166",
-#
-#     "redis_host": "localhost",  #
-#     # "redis_passwd": "7e6d8d12c59cecdb", # 本机器未设置
-#     # "redis_port": 55379,
-#     "redis_passwd": "7e6d8d12c59cecdb", # 本机器未设置
-#     "redis_port": 55379,
-#     "redis_task_db":1, # 音频redis 保存
-#     "redis_task_set_qq_name":"audio_task_of_qq_json_set", # 存储任务的json格式到集合中
-#     "redis_task_set_qq_name_zhuanxiang": "redis_task_set_qq_name_zhuanxiang",  # 专项的队列
-
-#     "redis_md5_set_result_url":"audio_md5_url_set", # 存储侵权音频url的md5到集合里 （如果存在集合里就不保存了）
-#
-#     "mysql_port": 3306,
-#     "mysql_username": 'root',  # 用户名 本地是root Xueyiyang
-#     "mysql_userpwd": 'Xueyiyang',  # 用户密码
-#     # test
-#     "mysql_host": 'localhost',  # 本地地址 localhost
-#     "mysql_db": "hexi_qinquan_task_2020_all",  # 数据库名称
-#     "mysql_task_qq_table":"audio_task2020",  # 音频任务表 qq音乐先用这个
-#     "mysql_result_table_name":"result_data_normal_",  # 音频结果表 后面拼接当天的时间 20200702
-#     "mysql_result_table_name_test":"", # 如果该配置为空 默认存到当天数据表格
-#
-#     "song_name_similar":0.16, # 两个歌曲的名字的相似度 来判断这歌有没有必要判断
-#     "procces_stop_time":600, # 如果任务队列为空 暂停多久
-#     "task_numbers":2, # 每次获取的任务
-#     "task_process":4, # 多进程
-#     "task_thread":2, # 多线程
-# "__audio_search_function__": audio_function_unit.__audio_search_function__,  # 音频动态导入
-# "__video_search_function__": video_function_unit.__video_search_function__,  # 视频动态导入
-#
-#
-# }
-#
-#
-#
-#
-#
-# 代理勿动
 
 proxy = "http://%(user)s:%(pass)s@%(host)s:%(port)s" % {
     "host": Config_of_audio_infringement["proxyHost"],
@@ -222,6 +164,14 @@ config = Config_of_audio_infringement
 
 # 测试使用配置
 Test_Config_Setting = {
+                    # 添加测试使用的代理 5/秒
+                    # 5/秒
+                    "proxyHost": "61.132.93.14",
+                    "proxyPort": "6442",
+                    # 代理隧道验证信息
+                    "proxyUser": "16BEFXMP",
+                    "proxyPass": "708166",
+
                     # 每种类型对应的配置路径
                     "type_value_dic" :{
                                     # type>int {调用关键词 对应的配置文件}

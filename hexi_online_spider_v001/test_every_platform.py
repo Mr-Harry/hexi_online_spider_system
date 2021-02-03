@@ -20,10 +20,10 @@ class Plarform_Test():
     def __init__(self,use_proxy=False):
         # 代理
         self.proxy = "http://%(user)s:%(pass)s@%(host)s:%(port)s" % {
-            "host": config["proxyHost"],
-            "port": config["proxyPort"],
-            "user": config["proxyUser"],
-            "pass": config["proxyPass"],
+            "host": test_config["proxyHost"],
+            "port": test_config["proxyPort"],
+            "user": test_config["proxyUser"],
+            "pass": test_config["proxyPass"],
         }
         # 代理 全局 use_proxy 是否为真
         self.proxies = {

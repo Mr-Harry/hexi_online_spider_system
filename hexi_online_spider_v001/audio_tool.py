@@ -257,6 +257,7 @@ def redis_get_tasks_from_redis(task_name=config["redis_task_set_qq_name"],task_n
             task_list.append(res)
     print(task_list)
     # print(type(res))
+    con.close()
     return task_list
 
 # 判断某个key是否存在
@@ -265,6 +266,7 @@ def redis_check_key_exit(task_name=config["redis_task_set_qq_name"],
                                             db=config["redis_task_db"], password=config["redis_passwd"])->list:
     con = redis.Redis(host=host, port=port, decode_responses=decode_responses, db=db, password=password)
     ifexit = con.exists(task_name)
+    con.close()
     if ifexit:
         return True
     else:
@@ -358,6 +360,7 @@ def redis_check_set_already_bf(task_name=config["redis_md5_set_result_url"], res
             else:
                 con.sadd(task_name, str(each["id"])+"|"+each["video2_url_hash"])
                 task_list.append(each)
+    con.close()
     return task_list
 # 传入列表 判断其中的每一条数据 是否存在于某个集合中 ,返回md5值不存在的结果
 def redis_check_set_already(task_name=config["redis_md5_set_result_url"], result_list=[],
@@ -393,6 +396,7 @@ def redis_check_set_already(task_name=config["redis_md5_set_result_url"], result
             task_name = old_task_name + "_" + chang_ping_ying(text=each["video_platform"])
             con.sadd(task_name, str(each["id"])+"|"+each["video2_url_hash"])
             task_list.append(each)
+    con.close()
     return task_list
 # 传入列表 判断其中的每一条数据 是否存在于某个集合中 只判断在不在
 def redis_check_set_already_first(task_name=config["redis_md5_set_result_url"], result_list=[],
@@ -482,6 +486,7 @@ def redis_check_set_already_first(task_name=config["redis_md5_set_result_url"], 
                 pass
             else:
                 task_list.append(each)
+    con.close()
     return task_list
 ###################################################### REDIS    ######################################################
 
