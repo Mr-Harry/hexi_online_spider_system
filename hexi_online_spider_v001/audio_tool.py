@@ -192,7 +192,8 @@ def mysql_save_to_current_result_table(result):
                 pymysql.escape_string(each["qinquan_title"]), pymysql.escape_string(""),
                 each["qinquan_URL"], str(each["id"])+"|"+md5_use(each["qinquan_URL"]),
                 each["qinquan_platform"], each["engine_check_platform"], now_time, 5, 0,
-                each["id"], now_time, "", each["id"])
+                each["id"], now_time, each.get("qinquan_id_str",""), each["id"])
+                # each["id"], now_time, "", each["id"])
 
             # print(sql_save_info)
             try:

@@ -41,4 +41,6 @@ ENGINE_CONF = {
     "jinri_search_offset":{"pagesize": 20, "start_page": 0},
     # 北京时间
     "beijinshijian_search_offset":{"pagesize": 20, "start_page": 1},
+    # 微博综合搜索
+    "weibozonghe_search_offset":{"pagesize": 10, "start_page": 1},
 }
