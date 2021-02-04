@@ -15,6 +15,10 @@
 3，修改工具文件 ✅
     修改搜索引擎的sql  存入qinquan_id_str
         为后期微博 详情来铺垫
+4，添加本地测试第二个 ✅
+    audio_tongbu_main_all_test_xyy.py
+5，配置文件修改 添加第二个队列 ✅
+    redis_task_set_qq_name_bendi_test_xyy
 
 #操作修改记录 2021 -02 - 02 周三
 1，配置文件以及tool工具文件 redis 关闭链接 ✅
