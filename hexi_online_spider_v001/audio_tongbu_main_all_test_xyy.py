@@ -509,23 +509,23 @@ if __name__ == '__main__':
     # exit(0)
 
     # 测试
-    # while 1:
-    #     try:
-    #         print(">>> 本次任务开始时间 ：{} \n".format(timestamp_strftime(like="%Y-%m-%d %H:%M:%S")))
-    #         audio_xyy_man = audio_plarform_search()
-    #         start_time = int(time.time())
-    #         audio_xyy_man.audio_main()
-    #         print("耗时： {}".format(int(time.time()) - start_time))
-    #         flag = redis_check_key_exit(task_name=config["redis_task_set_qq_name_bendi_test_xyy"])
-    #         if flag:
-    #             pass
-    #         else:
-    #             # print("没有任务了 暂停{}秒".format(config["procces_stop_time"]))
-    #             # time.sleep(config["procces_stop_time"])
-    #             print("没有任务了 暂停{}秒".format(2))
-    #             time.sleep(2)
-    #     except Exception as e:
-    #         print(e)
+    while 1:
+        try:
+            print(">>> 本次任务开始时间 ：{} \n".format(timestamp_strftime(like="%Y-%m-%d %H:%M:%S")))
+            audio_xyy_man = audio_plarform_search()
+            start_time = int(time.time())
+            audio_xyy_man.audio_main()
+            print("耗时： {}".format(int(time.time()) - start_time))
+            flag = redis_check_key_exit(task_name=config["redis_task_set_qq_name_bendi_test_xyy"])
+            if flag:
+                pass
+            else:
+                # print("没有任务了 暂停{}秒".format(config["procces_stop_time"]))
+                # time.sleep(config["procces_stop_time"])
+                print("没有任务了 暂停{}秒".format(2))
+                time.sleep(2)
+        except Exception as e:
+            print(e)
     # 单进程 进行
     print(">>> 本次任务开始时间 ：{} \n".format(timestamp_strftime(like="%Y-%m-%d %H:%M:%S")))
     audio_xyy_man = audio_plarform_search()

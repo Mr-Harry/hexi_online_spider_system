@@ -77,7 +77,7 @@ class WeiBoVideo:
         return url
     # 搜索视频响应解析
     def parse_search_video_song(self, response) -> list:
-        print(response.text)
+        # print(response.text)
         # print(response.url)
         try:
             tree = json.loads(response.text)
@@ -92,37 +92,34 @@ class WeiBoVideo:
             except:
                 video_song_list_data =[]
             for v_s in video_song_list_data:
-                # if v_s.get("card_type",{}) ==11: # 什么类型？
-                #     for each in v_s.get("card_group",[]):
-                #         video_dict = dict()
-                #         video_dict["video2_title"] = each.get("mblog", {}).get("page_info", {}).get("title", "")
-                #         if not self.check_video_title(video_dict.get("video2_title")):
-                #             continue
-                #         # video_dict["video2_url"] = self.url_add_http(v_s.get("mblog", ''))
-                #         video_dict["video2_url"] = each.get("mblog", {}).get("page_info", {}).get("page_url", "")
-                #         # video_dict["video2_url"] = each.get("mblog", {}).get("page_info", {}).get("media_info", {}).get(
-                #         #     "h5_url", "")
-                #         video_dict["video2_author"] = each.get("mblog", {}).get("user", {}).get("screen_name", "")
-                #         # video_dict["video_author_zone"] = "".join(v_s.xpath(".//a[@class='video-meta-user']/@href"))
-                #         video_dict["video2_pubtime"] = '' # 预留的位置  mblog 下的 created_at 时间格式很奇怪
-                #         video_dict["video2_url_hash"] = md5_use(video_dict.get("video2_url"))
-                #         video_dict["video2_platform"] = "微博视频"
-                #         if video_dict["video2_url"]:
-                #             duration_str_temp = each.get("mblog", {}).get("page_info", {}).get("media_info", {}).get(
-                #                 "duration", "")
-                #             duration, duration_str = unify_duration_format(duration_str_temp)
-                #             video_dict["video2_duration"] = duration  # 时长（秒数）
-                #             video_dict["video2_duration_str"] = duration_str  # 时长（字符串）
-                #             # print("11",video_dict)
-                #
-                #             result_list.append(video_dict)
-                #         print(video_dict)
+                if v_s.get("card_type",{}) ==11: # 什么类型？
+                    for each in v_s.get("card_group",[]):
+                        if each.get("card_type",{})==9:
+                            qin_quan_title_str = each.get("mblog", {}).get("user", {}).get("screen_name", "")
+                            qinquan_id_str = each.get("mblog", {}).get("mid", '')
+                            qinquan_id_2 = each.get("mblog", {}).get("bid", "")
+                            qinquan_user_id = each.get("mblog", {}).get("user", {}).get("id", "")
+                            qinquan_user_name = each.get("mblog", {}).get("user", {}).get("screen_name", "")  # 侵权作者名称
+                            qin_quan_url_str = "https://www.weibo.com/{}/{}#|xyy|{}".format(qinquan_user_id,
+                                                                                            qinquan_id_2,
+                                                                                            qinquan_id_str)
+                            qin_quan_abstract_str = self.parse_html(each.get("mblog", {}).get("text", ''))
+                            engine_dict = dict()
+                            engine_dict['qinquan_platform'] = '微博'  # 侵权平台
+                            engine_dict['qinquan_title'] = qin_quan_title_str  # 侵权标题
+                            engine_dict['qinquan_URL'] = qin_quan_url_str  # 侵权链接
+                            engine_dict['qinquan_text'] = qin_quan_abstract_str  # 侵权详情
+                            engine_dict['qinquan_id_str'] = qinquan_id_str  # 侵权详情
+                            engine_dict['qinquan_author'] = qinquan_user_name  # 侵权作者
+                            # print("safdasfasdf")
+                            result_list.append(engine_dict)
 
                 if v_s.get("card_type",{}) == 9: # 普通视频类型
                     qin_quan_title_str = v_s.get("mblog",{}).get("user",{}).get("screen_name","")
                     qinquan_id_str = v_s.get("mblog",{}).get("mid",'')
                     qinquan_id_2 = v_s.get("mblog",{}).get("bid","")
                     qinquan_user_id = v_s.get("mblog",{}).get("user",{}).get("id","")
+                    qinquan_user_name = v_s.get("mblog",{}).get("user",{}).get("screen_name","") # 侵权作者名称
                     qin_quan_url_str = "https://www.weibo.com/{}/{}#|xyy|{}".format(qinquan_user_id,qinquan_id_2,qinquan_id_str)
                     qin_quan_abstract_str = self.parse_html(v_s.get("mblog",{}).get("text",''))
                     engine_dict = dict()
@@ -131,6 +128,7 @@ class WeiBoVideo:
                     engine_dict['qinquan_URL'] = qin_quan_url_str  # 侵权链接
                     engine_dict['qinquan_text'] = qin_quan_abstract_str  # 侵权详情
                     engine_dict['qinquan_id_str'] = qinquan_id_str  # 侵权详情
+                    engine_dict['qinquan_author'] = qinquan_user_name  # 侵权作者
                     result_list.append(engine_dict)
                     # print(video_dict)
         # print(result_list)
@@ -163,7 +161,7 @@ if __name__ == '__main__':
         "sub_table_name": "sub_4_55",
         "task_type": 1,
         "page_num": 2,
-        "search_key_words": "正青春资源",
+        "search_key_words": "正青春",
         # "confirm_key_words": "班淑传奇",
         # "filter_key_words_list": "片花_穿帮_片头曲_片尾曲_预告_插曲_翻唱_翻唱_发布会_演唱_演奏_合唱_专访_合奏_打call_宣传_原唱_cover_原曲_片花_穿帮_音乐_主题歌_有声小说_片头_片尾",
     }

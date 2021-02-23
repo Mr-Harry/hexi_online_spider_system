@@ -11,4 +11,6 @@ __engine_search_function__ = {
             "5":"engine_search_unit.jinri_toutiao_news_search_unit.jinri_toutiao_zhannei_search_cartoon_search", # 今日头条文章搜索
             "6":"engine_search_unit.beijingshijian_news_search.beijin_shijian_search", # 北京时间文章搜索
             "7":"engine_search_unit.weibo_zonghe_news_search_unit.weibo_zonghe_search", # 微博综合的搜索
+            "8":"engine_search_unit.weibo_huati_news_search_unit.weibo_huati_search", # 微博话题的搜索
+            "9":"engine_search_unit.weibo_shishi_news_search_unit.weibo_shishi_search", # 微博实时的搜索
 }
