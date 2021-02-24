@@ -6,8 +6,14 @@
     统一放到 audio_tool里，从audio_tool 统一导入  from audio_tool import *
 3> 抖音以及快手可手动 速度过快未解决 ！！！❎
 
+#操作修改记录 2021 -02 - 05 周三
+1，喜马拉雅 添加app端口数据 （app端口数据较为全面）✅ 通过
+2, 修改音乐的存储函数 多存了三个字段 时长（int / str） 发布时间  ✅
+3，进行 视频平台的时间修改 lpy 完成目前所有平台的改写 ✅
+    预计需要添加视频平台 https://day-break.feishu.cn/sheets/shtcnD1Ux3qaNEjhBfSD7L6TQ3r?sheet=ubFsQH
+4, 进行配置文件的更新 修改工具文件 ✅
+
 #操作修改记录 2021 -02 - 05 周五
-1，
 
 #操作修改记录 2021 -02 - 04 周四
 1，微博分类 ✅

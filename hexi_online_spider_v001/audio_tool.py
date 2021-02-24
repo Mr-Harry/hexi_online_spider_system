@@ -47,8 +47,9 @@ def mysql_save_to_current_result_table(result):
             if each["qingquan_flag"]!=-1:
                 # print("hree")
                 # print(each)
-                sql_save_info = "insert into {}(audio_flag_str1,audio_flag_str2,title_similar_number,author_name_similar_number,yangben_URL,yangben_title,yangben_author_name,yangben_text,qinquan_text,qinquan_title,qinquan_author_name,qinquan_URL,qinquan_url_hash,qinquan_platform,yangben_platform,t,qinquan_type,qingquan_flag,flag_int,t_timestamp,qinquan_id_str,yangben_task_id) values('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}')".format(
-                    table_name,timestamp_strftime("%Y%m%d"),each["search_key_words"],str_similar(each["audio2_songName"],each["audio_title"]),str_similar(each["audio_author"],each["audio2_artistName"]),each["audio_url"],pymysql.escape_string(each["audio_title"]),pymysql.escape_string(each["audio_author"]),
+                sql_save_info = "insert into {}(duration,duration_str,qinquan_pub_time,audio_flag_str1,audio_flag_str2,title_similar_number,author_name_similar_number,yangben_URL,yangben_title,yangben_author_name,yangben_text,qinquan_text,qinquan_title,qinquan_author_name,qinquan_URL,qinquan_url_hash,qinquan_platform,yangben_platform,t,qinquan_type,qingquan_flag,flag_int,t_timestamp,qinquan_id_str,yangben_task_id) values('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}')".format(
+                                table_name,each.get("audio2_duration_intsec",""),each.get("audio2_duration_strsec",""),each.get("audio2_songtime",""),
+                                timestamp_strftime("%Y%m%d"),each["search_key_words"],str_similar(each["audio2_songName"],each["audio_title"]),str_similar(each["audio_author"],each["audio2_artistName"]),each["audio_url"],pymysql.escape_string(each["audio_title"]),pymysql.escape_string(each["audio_author"]),
                                 pymysql.escape_string(each["audio_album"]),pymysql.escape_string(each["audio2_albumName"]),
                                 pymysql.escape_string(each["audio2_songName"]),pymysql.escape_string(each["audio2_artistName"]),
                                 each["audio2_url"],str(each["id"])+"|"+each["audio2_url_hash"],
@@ -63,8 +64,8 @@ def mysql_save_to_current_result_table(result):
                     task_list.append(each_bf)
                 except Exception as e:
                     # print(sql_save_info)
-                    # print(e)
-                    print("重复插入错误")
+                    # print("插入出现问题 请注意！！！ 插入的语句 {}".format(sql_save_info),str(e))
+                    print("重复插入错误",str(e))
                     pass
             else:
                 # print("无关的音乐->{} 样本音乐->{}".format(each["audio2_songName"],each["audio_title"]))
@@ -627,6 +628,8 @@ def judge_song_type_easy(each):
             return 0
     elif each["audio2_platform"] == "情咖FM":
         return judge_qingka_platform(each)
+    else: # 其余的情况都返回0 需要比对和审核
+        return 0
     # 名字相似度满足条件才存 0
 # 判断歌曲名字和歌手名字相似度
 def str_similar(str1: str, str2: str, ndigits=2):

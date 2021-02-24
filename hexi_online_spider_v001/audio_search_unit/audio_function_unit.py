@@ -15,6 +15,7 @@ __audio_search_function__ = {
     '5': "audio_search_unit.qingka_search_unit.qingka_search",  # 情咖搜索
     '6': "audio_search_unit.wangyiyun_search_unit.wangyiyun_app_base_audio_search",  # 网易云音乐App搜索
     '7': "audio_search_unit.wangyiyun_search_unit.wangyiyun_app_base_audio_to_web_search",  # 网易云音乐AppToWeb搜索
+    '8': "audio_search_unit.ximalaya_search_unit.ximalaya_search_app",  # 虾米音乐Web端手机版搜索
 
     # '4444': "audio_search_unit.wangyiyun_search_unit.new_wangyiyun_app_search",  # New网易云app搜索
 
