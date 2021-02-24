@@ -11,7 +11,8 @@ from fake_useragent import UserAgent
 from retrying import retry
 
 from video_search_unit.tengxun_search_unit.tenxun_search_movie_tvplay_by_api import search_movie_tvplay_by_api
-from audio_tool import get_proxy, md5_use, unify_duration_format, unit_result_clear_for_video
+from audio_tool import get_proxy, md5_use, unify_duration_format, unit_result_clear_for_video, str_to_datetime, \
+    re_datetime_str
 from video_search_unit.Video_Infringement_Config import config_of_video as config
 
 
@@ -113,6 +114,7 @@ class TengXunVideo:
                     video_dict["video2_author"] = "".join(s_v.xpath(".//div[@class='info_item info_item_even']/span[@class='content']/a/text()")) if lable1 =='上传者：' else ''
                     video_dict["video2_url_hash"] = md5_use(video_dict.get("video2_url"))
                     video_dict["video2_platform"] = "腾讯视频"
+                    video_dict["video2_pubtime"] = re_datetime_str(str_to_datetime("".join(s_v.xpath(".//div[@class='info_item info_item_odd']/span[@class='content']/text()"))))
                     duration_str_temp = "".join(s_v.xpath(".//span[@class='figure_info']/text()"))
                     duration, duration_str = unify_duration_format(duration_str_temp)
                     video_dict["video2_duration"] = duration  # 时长（秒数）
@@ -206,10 +208,10 @@ if __name__ == '__main__':
         "sub_table_name": "sub_4_55",
         "task_type": 1,
         "search_key_words": "班淑传奇",
-        "confirm_key_words": "班淑传奇",
-        "filter_key_words_list": "片花_穿帮_片头曲_片尾曲_预告_插曲_翻唱_翻唱_发布会_演唱_演奏_合唱_专访_合奏_打call_宣传_原唱_cover_原曲_片花_穿帮_音乐_主题歌_有声小说_片头_片尾",
+        # "confirm_key_words": "班淑传奇",
+        # "filter_key_words_list": "片花_穿帮_片头曲_片尾曲_预告_插曲_翻唱_翻唱_发布会_演唱_演奏_合唱_专访_合奏_打call_宣传_原唱_cover_原曲_片花_穿帮_音乐_主题歌_有声小说_片头_片尾",
     }
     txv = TengXunVideo(use_proxy=True)
-    result = txv.search_video('班淑传奇', **kwags)
+    result = txv.search_video('爱', **kwags)
     print(result)
     print(len(result))

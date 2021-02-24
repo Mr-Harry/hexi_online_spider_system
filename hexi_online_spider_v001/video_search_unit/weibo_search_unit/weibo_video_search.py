@@ -115,8 +115,7 @@ class WeiBoVideo:
                 #             result_list.append(video_dict)
                 #         print(video_dict)
 
-                if v_s.get("card_type",{}) == 9: # 普通视频类型
-
+                if v_s.get("card_type",{}) == 9:  # 普通视频类型
                     video_dict = dict()
                     video_dict["video2_title"] = v_s.get("mblog",{}).get("page_info",{}).get("title","")
                     if not self.check_video_title(video_dict.get("video2_title")):
@@ -126,7 +125,7 @@ class WeiBoVideo:
                     video_dict["video2_url"] = v_s.get("mblog",{}).get("page_info",{}).get("page_url","")
                     video_dict["video2_author"] = v_s.get("mblog",{}).get("user",{}).get("screen_name","")
                     # video_dict["video_author_zone"] = "".join(v_s.xpath(".//a[@class='video-meta-user']/@href"))
-                    video_dict["video2_pubtime"] = ''
+                    video_dict["video2_pubtime"] = datetime.datetime.strptime(v_s.get("mblog", {}).get("created_at", ""), '%a %b %d %H:%M:%S %z %Y').strftime('%Y-%m-%d %H:%M:%S')
                     video_dict["video2_url_hash"] = md5_use(video_dict.get("video2_url"))
                     video_dict["video2_platform"] = "微博视频"
                     if video_dict["video2_url"]:

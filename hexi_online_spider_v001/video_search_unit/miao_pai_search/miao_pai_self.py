@@ -157,6 +157,7 @@ class MiaopaiVideo():
                 video_dict["video2_author"] = each["user"]["nick"]
                 video_dict["video2_url_hash"] = md5_use(video_dict.get("video2_url"))
                 video_dict["video2_platform"] = "秒拍视频"
+                video_dict["video2_pubtime"] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(each.get('created_at', 0)))
                 duration_str_temp = each.get('meta_data', [])[0].get('upload', {}).get('length', '') if each.get('meta_data', []) else ''
                 duration, duration_str = unify_duration_format(duration_str_temp)
                 video_dict["video2_duration"] = duration  # 时长（秒数）

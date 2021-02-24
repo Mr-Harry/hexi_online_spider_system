@@ -5,6 +5,7 @@
 
 import json
 import random
+import time
 from urllib.parse import urlencode
 
 import requests
@@ -152,6 +153,7 @@ class BilibiliVideo:
                 video_dict["video2_author"] = v_i.get('author', '')
                 video_dict["video2_url_hash"] = md5_use(video_dict.get("video2_url"))
                 video_dict["video2_platform"] = "哔哩哔哩"
+                video_dict["video2_pubtime"] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(v_i.get('pubdate', 0)))
                 video_dict["video2_id"] = v_i.get('aid', '')
                 duration_str_temp = v_i.get('duration', '')
                 duration, duration_str = unify_duration_format(duration_str_temp)

@@ -3,6 +3,8 @@
 # author : pyl owo,
 # time : 2020/7/14
 import random
+import time
+
 from lxml import etree
 import requests
 from pip._vendor.retrying import retry
@@ -102,7 +104,7 @@ class XiGua():
                     video_dict["video2_title"] = each["title"]
                     video_dict["video2_url"] = "https://www.ixigua.com/{}".format(each["group_id"])
                     video_dict["video2_author"] = each["anchor"]
-                    video_dict["video2_pubtime"] = each["publish_time"]
+                    video_dict["video2_pubtime"] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(each.get("publish_time", 0)))
                     video_dict["video2_url_hash"] = md5_use(video_dict.get("video2_url"))
                     video_dict["video2_platform"] = "西瓜视频"
                     duration_str_temp = each["video_time"]

@@ -2,7 +2,9 @@
 # I don't like the world. I just like you
 # author : pyl owo,
 # time : 2020/7/14
+import datetime
 import random
+import re
 from urllib.parse import urlencode
 
 from fake_useragent import UserAgent
@@ -10,7 +12,7 @@ from lxml import etree
 import requests
 from pip._vendor.retrying import retry
 from video_search_unit.Video_Infringement_Config import config_of_video as config
-from audio_tool import get_proxy, md5_use, unit_result_clear_for_video, unify_duration_format
+from audio_tool import get_proxy, md5_use, unit_result_clear_for_video, unify_duration_format, re_datetime_str
 
 
 class MeiPaiVideo:
@@ -83,7 +85,7 @@ class MeiPaiVideo:
                 video_song_list_data =[]
             for v_s in video_song_list_data:
                 video_dict = dict()
-                video_dict["video2_title"] = "".join(v_s.xpath(".//a[@class='content-l-p pa']/@title"))
+                video_dict["video2_title"] = "".join(v_s.xpath(".//a[@class='content-l-p pa']/@title")).replace('\n', '')
                 if not self.check_video_title(video_dict.get("video2_title")):
                     continue
                 video_dict["video2_url"] = "https://www.meipai.com" + "".join(v_s.xpath(".//a[@class='content-l-p pa']/@href"))
@@ -92,6 +94,14 @@ class MeiPaiVideo:
                 # video_dict["video2_pubtime"] = ""
                 video_dict["video2_url_hash"] = md5_use(video_dict.get("video2_url"))
                 video_dict["video2_platform"] = "美拍"
+                dada = re.search('(\d{4}-\d{1,2}-\d{1,2}(T\d{1,2}:\d{1,2}:\d{1,2})?)', "".join(v_s.xpath(".//meta[@itemprop='uploadDate']/@content")), re.S)
+                try:
+                    pubtime = dada.group()
+                except:
+                    pubtime = ''
+                else:
+                    pubtime = pubtime.replace('T', ' ')
+                video_dict["video2_pubtime"] = pubtime
                 duration_str_temp = ''
                 duration, duration_str = unify_duration_format(duration_str_temp)
                 video_dict["video2_duration"] = duration  # 时长（秒数）

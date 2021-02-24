@@ -11,7 +11,8 @@ from lxml import etree
 import requests
 from pip._vendor.retrying import retry
 from video_search_unit.Video_Infringement_Config import config_of_video as config
-from audio_tool import get_proxy, md5_use, unify_duration_format, unit_result_clear_for_video
+from audio_tool import get_proxy, md5_use, unify_duration_format, unit_result_clear_for_video, str_to_datetime, \
+    re_datetime_str
 
 
 class HaoKanVideo:
@@ -87,7 +88,8 @@ class HaoKanVideo:
                 video_dict["video2_url"] = v_s.get("url", '')
                 video_dict["video2_author"] = v_s.get("author", '')
                 # video_dict["video_author_zone"] = "".join(v_s.xpath(".//a[@class='video-meta-user']/@href"))
-                video_dict["video2_pubtime"] = v_s.get("publishTimeText", '')
+                video_dict["video2_pubtime2"] = v_s.get("publishTimeText", '')
+                video_dict["video2_pubtime"] = re_datetime_str(str_to_datetime(v_s.get("publishTimeText", '')))
                 video_dict["video2_url_hash"] = md5_use(video_dict.get("video2_url"))
                 video_dict["video2_platform"] = "好看视频"
                 duration_str_temp = v_s.get('duration', '')

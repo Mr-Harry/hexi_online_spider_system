@@ -8,7 +8,8 @@ import re
 import requests
 from retrying import retry
 
-from audio_tool import get_proxy, md5_use, unify_duration_format, unit_result_clear_for_video
+from audio_tool import get_proxy, md5_use, unify_duration_format, unit_result_clear_for_video, str_to_datetime, \
+    re_datetime_str
 from video_search_unit.Video_Infringement_Config import config_of_video as config
 
 class YouKu:
@@ -124,6 +125,7 @@ class YouKu:
 
     def get_video_dict_by_json_info(self, video_info_dict, video_youku_type_int) -> dict:
         video_dict = dict()
+        print(video_info_dict)
         video_base_url_id = video_info_dict.get('videoId', '')
         # print(video_base_url_id)
         video_base_url_id = video_info_dict.get('action', {}).get('report', {}).get('trackInfo', {}).get(
@@ -146,6 +148,7 @@ class YouKu:
 
         video_dict["video2_url_hash"] = md5_use(video_dict.get("video2_url"))
         video_dict["video2_platform"] = "优酷"
+        video_dict["video2_pubtime"] = re_datetime_str(str_to_datetime(video_info_dict.get('publishTime', '')))
         duration_str_temp = video_info_dict.get('screenShotDTO', {}).get('rightBottomText', '')
         duration, duration_str = unify_duration_format(duration_str_temp)
         video_dict["video2_duration"] = duration  # 时长（秒数）

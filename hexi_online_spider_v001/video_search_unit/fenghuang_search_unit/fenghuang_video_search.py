@@ -120,7 +120,7 @@ if __name__ == '__main__':
         "sub_table_name": "sub_4_55",
         "task_type": 1,
         "search_key_words": "班淑传奇",
-        "confirm_key_words": "班淑传奇",
-        "filter_key_words_list": "片花_穿帮_片头曲_片尾曲_预告_插曲_翻唱_翻唱_发布会_演唱_演奏_合唱_专访_合奏_打call_宣传_原唱_cover_原曲_片花_穿帮_音乐_主题歌_有声小说_片头_片尾",
+        # "confirm_key_words": "班淑传奇",
+        # "filter_key_words_list": "片花_穿帮_片头曲_片尾曲_预告_插曲_翻唱_翻唱_发布会_演唱_演奏_合唱_专访_合奏_打call_宣传_原唱_cover_原曲_片花_穿帮_音乐_主题歌_有声小说_片头_片尾",
     }
-    print(FengHuangVideo().search_songs('班淑传奇', **kwags))
+    print(FengHuangVideo().search_songs('我', **kwags))

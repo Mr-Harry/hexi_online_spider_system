@@ -148,11 +148,13 @@ class AiqiyiVideo:
                     if uploader_name:
                         return str(uploader_name)
                     return None
+                # print(video_info_dict)
                 video_dict["video2_author"] = "/".join(
                     [video2_author_tool(i.get('uploader_name')) for i in video_info_dict.get('videoinfos', []) if
                      i.get('uploader_name')])
                 video_dict["video2_url_hash"] = md5_use(video_dict.get("video2_url"))
                 video_dict["video2_platform"] = "爱奇艺"
+                video_dict["video2_video2_pubtime"] = video_info_dict.get('g_release_time', '')
                 duration_str_temp = video_info_dict.get('g_meta', '')
                 duration, duration_str = unify_duration_format(duration_str_temp)
                 video_dict["video2_duration"] = duration  # 时长（秒数）

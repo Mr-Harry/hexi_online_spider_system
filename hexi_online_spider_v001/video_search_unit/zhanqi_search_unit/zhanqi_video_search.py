@@ -77,6 +77,7 @@ class ZhanQiVideo:
                 video_dict["video2_author"] = v_i.get('nickName', '')
                 video_dict["video2_url_hash"] = md5_use(video_dict.get("video2_url"))
                 video_dict["video2_platform"] = "战旗直播"
+                video_dict["video2_pubtime"] = v_i.get('addTime', 0)
                 duration_str_temp = v_i.get('duration', '')
                 duration, duration_str = unify_duration_format(duration_str_temp)
                 video_dict["video2_duration"] = duration  # 时长（秒数）

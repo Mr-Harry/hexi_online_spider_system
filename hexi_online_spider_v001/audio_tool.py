@@ -6,6 +6,8 @@ import datetime
 import difflib
 import re
 import time
+
+import arrow
 import redis
 import pymysql
 import requests
@@ -927,6 +929,39 @@ def unit_result_clear_for_audio(result_list:list=[], **kwargs):
 
 def url_value_to_gb2312_upper(value):
     return str(value.replace(' ', '').encode('gb2312')).lstrip("b\'").replace("'", '').replace("\\x", "%").upper()
+
+
+def re_datetime_str(string):
+    dada = re.search('(\d{4}-\d{1,2}-\d{1,2}(\s\d{1,2}:\d{1,2}:\d{1,2})?)', string, re.S)
+    try:
+        return dada.group()
+    except:
+        return ''
+
+
+def str_to_datetime(string: str):
+    if string.endswith('天前'):
+        return (datetime.date.today() - datetime.timedelta(days=int(string.replace('天前', '').replace(' ', '')))).strftime('%Y-%m-%d')
+    elif string.endswith('昨天'):
+        return (datetime.date.today() - datetime.timedelta(days=1)).strftime('%Y-%m-%d')
+    elif string.endswith('前天'):
+        return (datetime.date.today() - datetime.timedelta(days=2)).strftime('%Y-%m-%d')
+    elif string.endswith('月前'):
+        dt = arrow.now()
+        return dt.shift(months=-int(string.replace('月前', '').replace(' ', ''))).format("YYYY-MM-DD")  #  HH:MM:SS
+    elif string.endswith('年前'):
+        now = datetime.date.today()
+        year = now.year - int(string.replace('年前', '').replace(' ', ''))
+        return datetime.date(year=year, month=now.month, day=now.day).strftime('%Y-%m-%d')
+    elif string.endswith('小时前'):
+        d = datetime.timedelta(hours=int(string.replace('小时前', '').replace(' ', '')))
+    elif string.endswith('分钟前'):
+        d = datetime.timedelta(minutes=int(string.replace('分钟前', '').replace(' ', '')))
+    elif string.endswith('秒前'):
+        d = datetime.timedelta(seconds=int(string.replace('秒前', '').replace(' ', '')))
+    else:
+        return string
+    return (datetime.datetime.now() - d).strftime('%Y-%m-%d %H:%M:%S')
 
 # 时间格式的万能公式
 def get_format_date(newsTime,format_time='%a, %d %b %Y %H:%M:%S'):

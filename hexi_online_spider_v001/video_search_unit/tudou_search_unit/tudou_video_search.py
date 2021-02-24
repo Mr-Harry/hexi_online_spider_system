@@ -10,7 +10,8 @@ from lxml import etree
 import requests
 from pip._vendor.retrying import retry
 from video_search_unit.Video_Infringement_Config import config_of_video as config
-from audio_tool import get_proxy, md5_use, unify_duration_format, unit_result_clear_for_video
+from audio_tool import get_proxy, md5_use, unify_duration_format, unit_result_clear_for_video, str_to_datetime, \
+    re_datetime_str
 
 
 class TuDouVideo:
@@ -93,7 +94,7 @@ class TuDouVideo:
                 video_dict["video2_url"] = self.url_add_http("".join(v_s.xpath(".//div[@class='v-meta va']/div[@class='v-meta-title']/a/@href")))
                 video_dict["video2_author"] = "".join(v_s.xpath(".//div[@class='v-meta va']/div[@class='v-meta-entry']//span[@class='username']/a/text()"))
                 # video_dict["video_author_zone"] = "".join(v_s.xpath(".//a[@class='video-meta-user']/@href"))
-                video_dict["video2_pubtime"] = "".join(v_s.xpath(".//div[@class='v-meta va']/div[@class='v-meta-entry']//span[@class='r']/text()"))
+                video_dict["video2_pubtime"] = re_datetime_str(str_to_datetime("".join(v_s.xpath(".//div[@class='v-meta va']/div[@class='v-meta-entry']//span[@class='r']/text()"))))
                 video_dict["video2_url_hash"] = md5_use(video_dict.get("video2_url"))
                 video_dict["video2_platform"] = "土豆视频"  # figure_info
                 duration_str_temp = "".join(v_s.xpath(".//span[@class='v-time']/text()"))

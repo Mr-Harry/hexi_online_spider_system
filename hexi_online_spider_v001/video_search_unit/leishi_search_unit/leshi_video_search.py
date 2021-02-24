@@ -4,6 +4,7 @@
 # time : 2020/7/14
 import json
 import random
+import time
 from urllib.parse import urlencode
 
 from fake_useragent import UserAgent
@@ -82,7 +83,7 @@ class LeShiVideo:
                 video_dict["video2_url"] = "http://www.le.com/ptv/vplay/" + v_s.get("vid", '') + '.html'
                 video_dict["video2_author"] = v_s.get("authors", '')
                 # video_dict["video_author_zone"] = "".join(v_s.xpath(".//a[@class='video-meta-user']/@href"))
-                video_dict["video2_pubtime"] = ''
+                video_dict["video2_pubtime"] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(int(v_s.get("ctime", '')) // 1000))
                 video_dict["video2_url_hash"] = md5_use(video_dict.get("video2_url"))
                 video_dict["video2_platform"] = "乐视视频"
                 duration_str_temp = v_s.get('duration', '')
