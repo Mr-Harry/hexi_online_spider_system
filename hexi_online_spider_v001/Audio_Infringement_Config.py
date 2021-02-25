@@ -82,17 +82,17 @@ Config_of_audio_infringement = {
 
 
     # 加强版 10/秒
-    # "proxyHost": "u4748.10.tp.16yun.cn",
-    # "proxyPort": "6446",
-    # # 代理隧道验证信息
-    # "proxyUser": "16YZSZLD",
-    # "proxyPass": "039923",
-    # 5/秒
-    "proxyHost": "u4748.10.tn.16yun.cn",
-    "proxyPort": "6442",
+    "proxyHost": "u4748.10.tp.16yun.cn",
+    "proxyPort": "6446",
     # 代理隧道验证信息
-    "proxyUser": "16BEFXMP",
-    "proxyPass": "708166",
+    "proxyUser": "16YZSZLD",
+    "proxyPass": "039923",
+    # 普通版10/秒
+    # "proxyHost": "u4748.10.tn.16yun.cn",
+    # "proxyPort": "6442",
+    # # 代理隧道验证信息
+    # "proxyUser": "16BEFXMP",
+    # "proxyPass": "708166",
 
     "search_audio_step":0.5, # 查询音乐平台侵权的列表搜索比例（一页10条数据取其中百分之多少）
     "redis_host": Redis_Config["redis_host"],  #

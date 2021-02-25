@@ -1,6 +1,8 @@
 # -*- coding:utf-8 -*-
 # 享受雷霆感受雨露
 # author xyy,time:2020/7/10
+import datetime
+
 import requests
 import time
 import hashlib
@@ -9,6 +11,7 @@ import json
 from urllib.parse import quote
 from audio_tool import md5_use
 from audio_tool import unit_result_clear_for_audio
+from audio_tool import get_duration_str
 import requests, pprint
 from fake_useragent import UserAgent
 from retrying import retry
@@ -98,10 +101,13 @@ class XiMaLaYa(object):
                     dic_["audio2_artistName"] = each["nickname"]
                     dic_["audio2_songName"] = each["title"]
                     dic_["audio2_songId"] = each["id"]
-                    dic_["audio2_songtime"] = ""  # 时间
+                    dic_["audio2_songtime"] = datetime.datetime.fromtimestamp(int(each["createdAt"]/1000)).strftime("%Y-%m-%d %H:%M:%S") # 时间
                     dic_["audio2_platform"] = "喜马拉雅"
+                    dic_["audio2_duration_intsec"] = int(each["duration"]) # 音乐时长 2021 02 25 新加功能 秒
+                    dic_["audio2_duration_strsec"] = get_duration_str(seconds=each["duration"]) # 音乐时长 2021 02 25 新加功能 格式化
                     dic_["audio2_albumid"] = each["albumId"]
-                    dic_["audio2_url"] = "https://www.ximalaya.com/yinyue/{album_id}/{song_id}".format(album_id=dic_["audio2_albumid"],song_id=dic_["audio2_songId"])
+                    # dic_["audio2_url"] = "https://www.ximalaya.com/yinyue/{album_id}/{song_id}".format(album_id=dic_["audio2_albumid"],song_id=dic_["audio2_songId"])
+                    dic_["audio2_url"] = "https://www.ximalaya.com{trackUrl}".format(trackUrl=each["trackUrl"])
                     dic_["audio2_url_hash"] = md5_use(text=dic_["audio2_url"])
                     result_list.append(dic_)
         return result_list
@@ -124,7 +130,8 @@ class XiMaLaYa(object):
         for page in range(_start,_end):
         # for page in range(config["xi_ma_la_ya"]["start"], config["xi_ma_la_ya"]["end"]):
 
-            url = "https://www.ximalaya.com/revision/search/main?kw={song_name}&page={page}&spellchecker=true&condition=relation&rows=20&device=iPhone&core=track&fq=category_id%3A2&paidFilter=false".format(song_name=quote(song_name),page=page)
+            # url = "https://www.ximalaya.com/revision/search/main?kw={song_name}&page={page}&spellchecker=true&condition=relation&rows=20&device=iPhone&core=track&fq=category_id%3A2&paidFilter=false".format(song_name=quote(song_name),page=page)
+            url = "https://www.ximalaya.com/revision/search/main?kw={song_name}&page={page}&spellchecker=true&condition=recent&rows=20&device=iPhone&core=track&fq=category_id%3A2&paidFilter=false".format(song_name=quote(song_name),page=page)
 
             # print(url)
             if proxy:
@@ -178,7 +185,7 @@ if __name__ == '__main__':
         "sub_table_name": "sub_1_17",
         "task_type": 2,
         "page_num": 1,
-        "search_key_words": "七里香",
+        "search_key_words": "云与海",
         # "confirm_key_words": "Live",
         # "filter_key_words_list": "片花_穿帮_片头曲_片尾曲_预告_插曲_翻唱_翻唱_发布会_演唱_演奏_合唱_专访_合奏_打call_宣传_原唱_cover_原曲_片花_穿帮_音乐_主题歌_有声小说_片头_片尾",
         # "filter_key_words_list": "演员",

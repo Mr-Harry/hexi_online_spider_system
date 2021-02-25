@@ -24,8 +24,8 @@ __video_search_function__ = {
     '15':"video_search_unit.mangguotv_search_unit.mangguotv_video_search", # 芒果TV视频
     '16':"video_search_unit.pptv_search_unit.pptv_video_search", # PPTV视频
     '17':"video_search_unit.tudou_search_unit.tudou_video_search", # 土豆网视频
-    '18': "video_search_unit.douyin_search_unit.douyin_video_search",  # 抖音短视频
-    '19': "video_search_unit.kuai_shou_search_unit.kuaishou_video_search",  # 快手短视频
+    # '18': "video_search_unit.douyin_search_unit.douyin_video_search",  # 抖音短视频
+    # '19': "video_search_unit.kuai_shou_search_unit.kuaishou_video_search",  # 快手短视频
     '20': "video_search_unit.xigua_search_unit.xigua_video_search",  # 西瓜视频
     '21': "video_search_unit.weibo_search_unit.weibo_video_search",  # 微博视频
     '22': "video_search_unit.wangyiyun_search_unit.wangyiyun_app_base_video_search",  # 网易云音乐app视频

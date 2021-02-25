@@ -6,7 +6,16 @@
     统一放到 audio_tool里，从audio_tool 统一导入  from audio_tool import *
 3> 抖音以及快手可手动 速度过快未解决 ！！！❎
 
-#操作修改记录 2021 -02 - 05 周三
+#操作修改记录 2021 -02 - 25 周四
+1，修改喜马拉雅抓取 app端改为web端可满足要求 ✅
+    抓取的端口 参数进行修改 抓取 音乐分类，修改接口参数
+2，添加海外 YouTube
+3，注释掉 抖音和快手的抓取 已经被封号了，。。。✅  单独写吧
+4, 重新确认了喜马拉雅的问题 发布时间？ 测试中
+5，添加 短视频平台 梨视频平台
+ANyPxKp_vAPvX1lfo8baFzV137qeOBTQ2CTlDg6aOJv9INtQBLX-T_nz-7zkbBWIWKcxAo0ZFEMpYUCvVqHUADqndEOoz3dI4A
+
+#操作修改记录 2021 -02 - 24 周三
 1，喜马拉雅 添加app端口数据 （app端口数据较为全面）✅ 通过
 2, 修改音乐的存储函数 多存了三个字段 时长（int / str） 发布时间  ✅
 3，进行 视频平台的时间修改 lpy 完成目前所有平台的改写 ✅
